@@ -1,0 +1,191 @@
+﻿@{
+    ViewBag.Title = "SRCU Admin Dashboard";
+}
+@Html.Partial("_AdminNavigation")
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Today statistics *@
+            <div class="panel panel-default">
+                <div class="panel-body bold big">Today: <span class="small">@DateTime.Today.ToLongDateString()</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightCyan-green_Background" colspan="2">
+                                        Submitted Bags
+                                    </td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="cyan-green_Background white bigger" height="110">
+                                    <td width="30%">	&#128188;</td>
+                                    <td>@ViewBag.TodayBag</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightPink_Background" colspan="2">
+                                        Total Deposits
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr height="110" class="pink_Background white bigger">
+                                    <td width="30%">&#128181;</td>
+                                    <td> @ViewBag.TodayDeposits</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightBlue_Background" colspan="2">
+                                        Total Dollar Amount
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr height="110" class="blue_Background white bigger">
+                                    <td width="30%">&#36;</td>                                   
+                                    <td>@(((decimal)ViewBag.TodayDollarAmt).ToString("C2")) </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightBrownOrange_Background" colspan="2">
+                                       Total Apps
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr height="110" class="brownOrange_Background white bigger">
+                                    <td width="30%">&#128240;</td>
+                                    <td>@ViewBag.TodayApps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            @* Yesterday statistics *@
+            <div class="panel panel-default">
+                <div class="panel-body bold big">
+                    Previous:<span class="small">
+                        @if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+                        {
+                            @DateTime.Today.AddDays(-3).ToLongDateString()
+
+                        }
+                        else
+                        {
+                            @DateTime.Today.AddDays(-1).ToLongDateString()
+                        }
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightPurple_Background" colspan="2">
+                                        Submitted Bags
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="purple_Background white bigger" height="110">
+                                    <td width="30%">&#128188;</td>
+                                    <td> @ViewBag.YesterdayBag</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="grey_Background" colspan="2">
+                                        Total Deposits
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="darkgrey_Background white bigger" height="110">
+                                    <td width="30%">&#128181;</td>
+                                    <td> @ViewBag.YesterdayDeposits</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightBrown_Background" colspan="2">
+                                        Total Dollar Amount
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="brown_Background white bigger" height="110">
+                                    <td width="30%">	&#36;</td>
+                                    <td>@(((decimal)ViewBag.YesterdayDollarAmt).ToString("C2")) </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashBox">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td height="30" class="lightGreen_Background" colspan="2">
+                                        Total Apps
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr height="110" class="darkGreen_Background white bigger">
+                                    <td width="30%">	&#128240;</td>
+                                    <td>@ViewBag.YesterdayApps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

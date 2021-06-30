@@ -1,0 +1,25 @@
+﻿@using SRCUBagTracking.Models
+@{
+    var branchName = Session["branchName"];
+ }
+
+<div class="navbar navbar-default nav-top-margin">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse navbar-menu ">
+            <ul class="nav navbar-nav navbar-right">
+                <li id="floatbar" class="loginUserNav">
+                    Welcome @branchName Branch User
+                </li>
+                <li class="menuBlock yup">@Html.ActionLink("Home", "Index", new { area = "Branch", Controller = "Branch" })</li>
+                @*<li class="menuBlock">@Html.ActionLink("Logout", "Login", new { area = "", Controller = "Account" })</li>*@
+            </ul>            
+        </div>
+    </div>
+</div>

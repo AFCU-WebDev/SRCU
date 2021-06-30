@@ -1,0 +1,28 @@
+﻿<div class="navbar navbar-default nav-top-margin">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>       
+        <div class="navbar-collapse collapse navbar-menu ">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="menuBlock yup">@Html.ActionLink("Dashboard", "Index", new { area = "Admin", Controller = "Dashboard" })</li>
+                <li class="menuBlock">@Html.ActionLink("Admin", "Schools", new { area = "Admin", Controller = "Admin" }) </li>
+                <li class="menuBlock ">
+                    @Html.ActionLink("Marketing", "AdminMarketing", new { area = "Admin", Controller = "Admin" })
+
+                    @*Add a New Tag image if there is a new document in the sql table*@
+                    @Html.Partial("_marketingUpdateNewTag")
+                </li>
+
+                <li class="menuBlock">@Html.ActionLink("Training", "Training", new { area = "", Controller = "Home" })</li>
+                <li class="menuBlock">@Html.ActionLink("Resources", "srcuDocuments", new { area = "", Controller = "Home" })</li>
+                <li class="menuBlock">@Html.ActionLink("Logout", "Login", new { area = "", Controller = "Account" })              </li>
+                @*<li class="menuBlock">@Html.ActionLink("Schools", "Index", new { area = "Admin", Controller = "School" })</li>*@
+            </ul>
+        </div>
+    </div>
+</div>

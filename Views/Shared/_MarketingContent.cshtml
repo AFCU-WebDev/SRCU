@@ -1,0 +1,271 @@
+﻿@model SRCUBagTracking.Models.FileDetailsModel
+@{
+    ViewBag.Title = "SRCU Marketing";
+    var branchMascot = Session["branchMascot"];
+    var schoolLocation = Session["schoolLocation"];
+    var schoolHours = Session["schoolHours"];
+    var BranchId = Session["BranchId"];
+    var ImgFolderPath = Session["ImageName"];
+
+    // category name in DropDownList
+    List<SelectListItem> fileCategory = new List<SelectListItem>();
+    fileCategory.Add(new SelectListItem { Text = "Letters", Value = "Letters" });
+    fileCategory.Add(new SelectListItem { Text = "Flyers", Value = "Flyers" });
+    //FileCategory.Add(new SelectListItem { Text = "Logo", Value = "Logo" });
+
+}
+
+
+<div class="container">
+    <br />  <h3> Marketing </h3><br /><br />
+    <div>
+        <ul class="nav nav-tabs responsive" id="pTabs">
+            <li class="documentTab active"><a data-toggle="tab" href="#tab1">Style Guide and Branding</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab2">Logo</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab3">Print Collateral</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab4">Web Content</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab5">Student On-Boarding</a></li>
+            @if (@BranchId.Equals(160100) || @BranchId.Equals(160200))
+            {
+                <li class="documentTab"><a data-toggle="tab" href="#tab6">Upload</a></li>
+            }
+        </ul>
+        <div class="tab-content responsive">
+
+            @* ****************** Tab 1 - style Guid and branding ************* *@
+            <div class="tab-pane fade in active panel" id="tab1">
+                <div style="padding-top:0px; " class="panel-body">
+                    <div class="marketingTabFrame">
+                        @* *********** begin style & Guide content ************ *@
+                        <table style="border-top:hidden;" class="table table-responsive ">
+                            <tbody>
+                                <tr>
+                                    <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Style Guide</td>
+                                    <td><a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info"> View</a> <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info" download> Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            @* ******************* Tab 2 - Logos ******************* *@
+            <div class="tab-pane fade panel" id="tab2">
+                <div style="padding-top:0px; " class=" panel-body marketingTabFrame">
+                    <h4>Note: Please refer to <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank">Style Guide</a> before downloading.</h4>
+                    <div class="col-md-push-2 col-md-3 logoBox">
+
+                        <strong><i> Apple with FCU</i></strong><br />
+                        <a href="~/Content/img/logos/AppleLogoColor.jpg" target="_blank" download> <img class="logoImage" src="~/Content/img/logos/Apple-with-FCU.png" /> </a>
+                        <a style="margin-top:20px;" href="~/Content/img/logos/AppleLogoColor.jpg" target="_blank" class="btn btn-info DLbutton" download> Download</a>
+                        <p>The standard version of the Apple logo should not be utilized in instances smaller than 1” wide (72 pixels) </p>
+                    </div>
+                    <div class="col-md-push-3 col-md-3 logoBox">
+                        <strong><i>Apple without FCU</i></strong><br />
+                        <a href="~/Content/img/logos/AppleLogoNoFCU.jpg" target="_blank" download> <img class="logoImage" src="~/Content/img/logos/Apple-without-FCU.png" /> </a>
+                        <a style="margin-top:20px;" href="~/Content/img/logos/AppleLogoNoFCU.jpg" target="_blank" class="btn btn-info DLbutton" download> Download</a>
+                        <p>In applications smaller than 1”, use the logo without the Federal Credit Union designation</p>
+                    </div>
+                </div>
+            </div>
+
+            @* ********************* Tab 3 - Print Collateral ******************** *@
+            <div class="tab-pane fade panel" id="tab3">
+                <div style="padding-top:0px; " class="col-md-12 panel-body marketingTabFrame">
+                    @******* Letters*******@
+                    <div class="col-md-12">
+                        <h4>Letters</h4><hr style="margin:10px;" /><br />
+                        @foreach (var item in @ViewBag.LetterCategoryFiles)
+                        {
+                            <div class="col-md-push-1 col-md-3 flyerBox" style="margin-top:30PX;">
+                                <strong>@item.fileTitle</strong><br />
+                                @*Add "/SRCUBagTracker" to the document and image path for windows authentication/ AppleNet*@
+                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
+                            </div>
+                        }
+                        <div class="col-md-9"></div>
+                    </div>
+                    @******* Flyers*******@
+                    <div class="col-md-12" style="margin-top:40px;">
+                        <h4>Flyers</h4><hr style="margin:10px;" /><br />
+
+                        @foreach (var item in @ViewBag.FlyersCategoryFiles)
+                        {
+                            <div class="col-md-push-1 col-md-3 flyerBox" style="margin-top:30PX;">
+                                <strong>@item.fileTitle</strong><br />
+                                @*Add "/SRCUBagTracker" to the document and image path for windows authentication/ AppleNet*@
+                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
+                            </div>
+                        }
+
+                        @*<div class="col-md-9"></div>*@
+                    </div>
+                </div>
+            </div>
+
+            @* ******************** Tab 4 - Web Content ************* *@
+            <div class="tab-pane fade panel" id="tab4">
+                <div style="padding-top:0px;" class="panel-body marketingTabFrame">
+                    @*<h6 style="color:black;">Date: @DateTime.Today.ToShortDateString() </h6><br />*@
+                    <h4>Web Content  - Last Updated 12/01/2016</h4><br />
+                    <p> <i>Whenever you have any information regarding Apple on your school’s website, use the following content:</i></p>
+                    <div class="marketingWebContent">
+                        <p class="bold">APPLE FEDERAL CREDIT UNION</p>
+                        <img src="~/Content/img/logos/apple-logo_192x115.png" style="margin-bottom:20px;" width="150" /><br />
+                        <span>  <strong>About the @branchMascot Branch</strong></span>
+                        <div>
+                            <p style="padding-top:10px;">Apple's Student-Run Branch Program provides students real-world financial literacy, fiscal education and the opportunity to explore future employment options. </p>
+                            @*<strong>Branch Name:</strong> <i>@branchMascot Branch</i> <br />*@
+                            <ul style="list-style: none;">
+                                <li><strong>Location in School:</strong> <i>@schoolLocation</i><br /></li>
+                                <li><strong>Hours of Operation:</strong> <i>@schoolHours</i></li>
+                            </ul>
+                            <p>With more than 20 <a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">branches</a> across Northern Virginia, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Online Banking</a>, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Mobile Apps</a>*, as well as access to more than 53,000 Surcharge-FREE** ATMs nationwide, no matter where you go, we’re nearby.</p>
+                        </div>
+                        <br />
+
+                        <h5 style="color:black; padding-bottom:15px;">Manage Your Money</h5>
+                        <ul>
+                            <li>FREE <a href="https://www.applefcu.org/Checking" target="_blank">Checking accounts</a> (Interest-earning and student options available) with FREE <a href="https://www.applefcu.org/Checking/DebitCard" target="_blank">Visa® Debit Card</a></li>
+                            <li><a href="https://www.applefcu.org/Savings" target="_blank">Savings accounts</a> (Student, Club, Certificates, etc.)</li>
+                            <li href="https://www.applefcu.org/Onlineaccess" target="_blank">
+                                24/7 Account Access
+                                <ul>
+                                    <li>FREE <a href="https://www.applefcu.org/Onlineaccess/OLBanking" target="_blank">Online</a> & <a href="https://www.applefcu.org/Onlineaccess/Mobilebanking#tab2">Text</a> Banking<sup>1</sup></li>
+                                    <li><a href="https://itunes.apple.com/us/app/apple-federal-credit-union/id421571209?mt=8" target="_blank">FREE iPad®, iPhone®</a>, and <a href="https://play.google.com/store/apps/details?id=org.applecu.mobile" target="_blank">Android™</a> Apps<sup>2</sup>, including <a href="https://www.applefcu.org/Onlineaccess/Mobilebanking#tab1" target="_blank">check deposit</a></li>
+                                    <li>FREE <a href="https://www.applefcu.org/Onlineaccess/eServices" target="_blank">Bill Pay</a> – pay businesses AND people</li>
+                                    <li><a href="https://www.applefcu.org/Onlineaccess/olbanking#tab3" target="_blank">Transfer Money</a> – between your accounts at Apple and other institutions, as well as people</li>
+                                </ul>
+                            </li>
+                            <li>More than <a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">53,000+ Surcharge-FREE* ATMs</a> nationwide</li>
+                            <li><a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">20+ Northern Virginia Branches</a> – more than any other Credit Union</li>
+                        </ul>
+                        <p>For more information or to join, visit <a href="http://www.applefcu.org/" target="_blank">AppleFCU.org</a> or fill out an application <a href="https://www.applefcu.org/Content/docs/SRCU/Member_Application_2016.pdf?utm_source=srcu&&utm_medium=site&&utm_content=memberapp&&utm_campaign=liaisonmarketing" target="_blank">here</a>.</p>
+                        <div style="line-height:18px !important;"><span class="disclaimers">*Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. **Other institutions may impose a foreign ATM fee surcharge. See fee schedule. <sup>1</sup>Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. <sup>2</sup>Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. The trademarks, logos and names of other companies, products and services are the property of their respective owners.</span></div>
+                    </div>
+                </div><br />
+            </div>
+
+            @* ******************* Tab 5 - Onborading Student ************* *@
+            <div class="tab-pane fade panel" id="tab5">
+                <div style="padding-top:0px; " class="col-md-12 panel-body marketingTabFrame">
+                    <h4>NOTE: These emails are for reference only.</h4>
+                    <p style=" line-height:28px; padding:5% 5% 0 5%; font-weight:500; font-size:16px;">The below emails are automatically delivered to new members, ages 13-17, as part of Apple’s comprehensive on-boarding program. The initial email is sent within 24 hours of account opening and the remaining are sent once a week thereafter. <strong>These emails should not be printed and provided to students, nor are they available to be sent on-demand, in order to avoid duplicate messaging. </strong></p>
+                    <div class="col-md-push-1 col-md-2 onBoardingEmailBox">
+                        <strong>Welcome to Apple!</strong>
+                        <a href="http://anet.afcu.org/applenet/MKTG/Emails/onboarding/1_Welcome_Student.html" target="_blank"> <img class="onBoardingEmailImage" style="margin-top:5%;" src="~/Content/img/pics/Marketing/welcomeStudent.png" /> </a>
+                    </div>
+                    <div class="col-md-push-1 col-md-2 onBoardingEmailBox">
+                        <strong>Account Access</strong><br />
+                        <a href="http://anet.afcu.org/applenet/MKTG/Emails/onboarding/2_FindUs_Student.html" target="_blank"> <img class="onBoardingEmailImage" src="~/Content/img/pics/Marketing/FindUsStudent.png" /> </a>
+                    </div>
+                    <div class="col-md-push-1 col-md-2 onBoardingEmailBox">
+                        <strong>Mobile Apps</strong><br />
+                        <a href="http://anet.afcu.org/applenet/MKTG/Emails/onboarding/3_Apps_Student.html" target="_blank"> <img class="onBoardingEmailImage" src="~/Content/img/pics/Marketing/AppsStudent.png" /> </a>
+                    </div>
+                    <div class="col-md-push-1 col-md-2 onBoardingEmailBox">
+                        <strong>Digital Wallets</strong><br />
+                        <a href="http://anet.afcu.org/applenet/MKTG/Emails/onboarding/4_DigitalWallet_Student.html" target="_blank"> <img class="onBoardingEmailImage" src="~/Content/img/pics/Marketing/DigitalWallet.png" /> </a>
+                    </div>
+                </div>
+            </div>
+            @* ****************** Tab 6 - Upload ************* *@
+
+            <div class="tab-pane fade panel" id="tab6">
+                <div style="padding-top:0px; " class="panel-body">
+                    <h4 style=" margin-top:3%">Add new PDF</h4>
+                    @using (Html.BeginForm("AdminMarketing", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="col-md-6">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
+                        @* ***** Select File ***** *@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger small bold" })
+                            </div>
+                        </div>                                                
+
+                        @* ***** File Title ***** *@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.fileTitle, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.fileTitle, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fileTitle, "", new { @class = "text-danger small bold" })
+                            </div>
+                        </div>
+
+                        @* ***** File Category ***** *@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.fileCategory, htmlAttributes: new { @class = "control-label  col-md-6" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.fileCategory, fileCategory, "-- Select Category --", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.fileCategory, "", new { @class = "text-danger small bold" })
+                            </div>
+                        </div>
+                        
+                        @* ***** Select thumbnail ***** *@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.thumbnail, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(model => model.thumbnail, "", new { @type = "file", @multiple = "multiple" })
+                                @Html.ValidationMessageFor(model => model.thumbnail, "", new { @class = "text-danger small bold" })
+                            </div>
+                        </div>
+
+                        @* ***** File Date ***** *@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dateUploaded, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.dateUploaded, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                @Html.ValidationMessageFor(model => model.dateUploaded, "", new { @class = "text-danger small bold" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-push-6 col-md-6">
+                                <input type="submit" value="Upload" class="btn btn-primary" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10 text-success">
+                                @ViewBag.FileStatus
+                            </div>
+                        </div>
+                        <br /> <br />
+
+                    </div>
+                </div>
+}
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //Scholarship Read More/ReadLess slideDown/Up
+    $(document).ready(function () {
+        $(".readMore").click(function () {
+            $("#item").slideDown();
+            $(".readMore").css("display", "none");
+            $(".readLess").css("display", "inline");
+        });
+        $(".readLess").click(function () {
+            $("#item").slideUp();
+            $(".readLess").css("display", "none");
+            $(".readMore").css("display", "inline");
+        });
+    });
+</script>
+
+

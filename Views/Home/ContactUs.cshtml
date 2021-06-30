@@ -1,0 +1,176 @@
+﻿@model SRCUBagTracking.Models.ContactUs
+
+@{
+    ViewBag.Title = "Contact Us";
+    var schoolName = Session["schoolName"];
+
+    // Type of Request in DropDownList
+    List<SelectListItem> typeOfRequest = new List<SelectListItem>();
+    typeOfRequest.Add(new SelectListItem { Value = "Marketing Supply Request", Text = "Marketing Supply Request" });
+    typeOfRequest.Add(new SelectListItem { Value = "Operational Supply Request", Text = "Operational Supply Request" });
+    typeOfRequest.Add(new SelectListItem { Value = "Maintenance and Repairs", Text = "Maintenance and Repairs" });
+    typeOfRequest.Add(new SelectListItem { Value = "others/Misc", Text = "others/Misc" });
+
+    //Marketing Supply Request in DropDown List
+    List<SelectListItem> marketingSupply = new List<SelectListItem>();
+    marketingSupply.Add(new SelectListItem { Value = "Brochures", Text = "Brochures" });
+    marketingSupply.Add(new SelectListItem { Value = "Flyers", Text = "Flyers" });
+    marketingSupply.Add(new SelectListItem { Value = "Materials with Logo update", Text = "Materials with Logo update" });
+    marketingSupply.Add(new SelectListItem { Value = "Newsletters", Text = "Newsletters" });
+
+    // Operational Supply Request in DropDownList
+    List<SelectListItem> operationalSupply = new List<SelectListItem>();
+    operationalSupply.Add(new SelectListItem { Value = "applications", Text = "applications" });
+    operationalSupply.Add(new SelectListItem { Value = "Deposit Slips", Text = "Deposit Slips" });
+    operationalSupply.Add(new SelectListItem { Value = "pens", Text = "pens" });
+
+    // Maintenance and Repairs in DropDownList
+    List<SelectListItem> maintenanceRepairs = new List<SelectListItem>();
+    maintenanceRepairs.Add(new SelectListItem { Value = "Kiosk repair", Text = "Kiosk repair" });
+    maintenanceRepairs.Add(new SelectListItem { Value = "Apple property repair", Text = "Apple property repair" });
+}
+
+@Html.Partial("_LiaisonNavigation")
+
+<div class="container">
+    <br />
+
+    <div class="contactUsForm">
+        <h3> Contact Us </h3><br />
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            @Html.AntiForgeryToken()
+            <table class="table">
+                <tbody>
+                    <tr>
+                        @Html.HiddenFor(m => m.dateSubmitted, "{0:MM-dd-yyyy HH:mm tt}")
+
+                    </tr>
+                    <tr>
+                        <td>
+                            School Name
+                        </td>
+                        <td>
+
+                            @Html.TextBoxFor(model => model.schoolName, new { size = "200px;", @Value = schoolName, @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.schoolName, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Subject
+                        </td>
+                        <td>
+
+                            @Html.TextBoxFor(m => m.subject, new { size = "200px;" })
+                            @Html.ValidationMessageFor(m => m.subject, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Type of Request
+                        </td>
+                        <td>
+
+                            @Html.DropDownListFor(model => model.typeOfRequest, typeOfRequest, "----- Please Select -----", new { @class = "form-control list-box tri-state typeOfRequest" })
+                            @Html.ValidationMessageFor(m => m.typeOfRequest, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr style="display:none;" class="marketingSupply">
+                        <td>
+                            Marketing Supply Request
+                        </td>
+                        <td>
+
+                            @Html.DropDownListFor(model => model.marketingSupply, marketingSupply, "----- Please Select -----", new { @class = "form-control list-box tri-state " })
+                            @Html.ValidationMessageFor(m => m.marketingSupply, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr style="display:none;" class="operationalSupply">
+                        <td>
+                            Operational Supply Request
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.operationalSupply, operationalSupply, "----- Please Select -----", new { @class = "form-control list-box tri-state" })
+                            @Html.ValidationMessageFor(m => m.operationalSupply, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr style="display:none;" class="maintenanceRepairs">
+                        <td>
+                            Maintenance and Repairs
+                        </td>
+                        <td>
+
+                            @Html.DropDownListFor(model => model.maintenanceRepairs, maintenanceRepairs, "----- Please Select -----", new { @class = "form-control list-box tri-state" })
+                            @Html.ValidationMessageFor(m => m.maintenanceRepairs, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+
+                    <tr style="display:none;" class="othersMisc">
+                        <td>
+                            Other/Misc
+                        </td>
+                        <td>
+
+                            @Html.TextAreaFor(m => m.othersMisc, new { @rows = "2", @cols = "50" })
+                            @Html.ValidationMessageFor(m => m.othersMisc, "", new { @class = "text-danger small bold" })
+                        </td>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+
+                            @Html.TextAreaFor(m => m.message, new { @rows = "5", @cols = "50" })
+                            @Html.ValidationMessageFor(m => m.message, "", new { @class = "text-danger small bold" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-default" id="submit" name="submit">Submit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+        //slide down if based on type of request
+        $(".typeOfRequest").change(function () {
+            var typeOfRequestValue = this.value;
+
+            if (typeOfRequestValue == "Marketing Supply Request") {
+                $(".marketingSupply").slideDown();
+            }
+            else if (typeOfRequestValue == "Operational Supply Request") {
+                $(".operationalSupply").slideDown();
+            }
+            else if (typeOfRequestValue == "Maintenance and Repairs") {
+                $(".maintenanceRepairs").slideDown();
+            }
+            else if (typeOfRequestValue == "others/Misc") {
+                $(".othersMisc").slideDown();
+            }
+            else {
+                $(".othersMisc").slideDown();
+            }
+            
+        });
+
+    });
+
+</script>

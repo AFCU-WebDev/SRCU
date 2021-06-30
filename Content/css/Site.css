@@ -1,0 +1,644 @@
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    height:100%;
+    margin: 0;
+    overflow-x:hidden;
+
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 220px;
+}
+/*------------------ customized tags------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    color: #d22734;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+h1 {
+    font-size: 1.1em;
+    text-shadow: #fff 0 1px 0;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.nav-tabs .documentTab{
+    padding-left:22px;
+    padding-right:24px;
+}
+/* -------------color pallet----------------*/
+.blue{
+    color:#1c355e;
+}
+
+.blue_Background{
+    background-color:#66a6c2;
+}
+
+.brown_Background{
+    background-color:#7c403c;
+}
+
+.brownOrange{
+    color:#c85948;
+}
+
+.brownOrange_Background{
+    background-color:#c85948;
+}
+.cyan-green{
+    color:#6ccdb3;
+}
+
+.cyan-green_Background{
+    background-color:#6ccdb3;
+}
+
+
+.darkgrey{
+    color:#3e3d3d;
+     font-weight:bold;
+}
+
+.darkgrey_Background{
+    background-color:#3e3d3d;
+}
+
+.darkGreen_Background{
+    background-color:#7e7b4e;
+}
+.grey{
+    color:#aca7aa;
+    font-weight:bold;
+}
+.grey_Background{
+    background-color:grey;
+}
+
+.green_background{
+    background-color: #b5bd00;
+}
+
+.inlineBlock{
+    display:inline-block;
+}
+.lightBlue{
+    color:#00b2ca;
+}
+.lightBlue_Background{
+    background-color:#9dc6d8;
+}
+
+.lightBrown_Background{
+    background-color:#b66e68;
+}
+.lightBrownOrange_Background{
+    background-color:#da8e83;
+}
+.lightCyan-green{
+    color:#a5e0d1;
+}
+
+.lightCyan-green_Background{
+    background-color:#a5e0d1;
+}
+
+.lightGreen_Background{
+    background-color:#a7a471;
+}
+.lightPink_Background{
+    background-color:#f1b1bd;
+}
+ .lightPurple{
+     color:#cb52a2;
+ }
+
+ .lightPurple_Background{
+     background-color:#ca51a2;
+ }
+
+ .pink_Background{
+     background-color:#e98698;
+ }
+.purple{
+    color:#722257;
+}
+
+.purple_Background{
+    background-color:#722257;
+}
+.red{
+    color:#b12029;
+}
+
+.red_Background{
+      background-color:#b12029;
+}
+
+.white{
+    color:white;
+    font-weight:bold;
+}
+
+.white_Background{
+    background-color:#ffffff;
+}
+
+.yellow{
+    color:#c5af4a;
+}
+
+.yellow_Background{
+    background-color:#c5af4a;
+}
+
+
+/* ---------------- alignment and size-----------*/
+
+.bigger{
+    font-size:28px;
+}
+
+.big{
+    font-size:20px;
+}
+.bold{
+    font-weight:bold;
+}
+
+.valigns{
+    vertical-align:central;
+}
+.margin-top {
+    margin-top: 7%;
+}
+
+.padding-left {
+    padding-left: 10%;
+}
+
+.margin-left{
+    margin-left:3%;
+}
+
+.margin-bottom{
+    padding-bottom:100px;
+}
+.no-bold{
+    font-weight:normal;
+}
+
+.small{
+    font-size:13px;
+}
+
+/* class style for span disclaimers new class style added for the Marketing Web content box*/
+span.disclaimers {
+    font-size: 11px;
+    padding: 0px;
+}
+/********************************************/
+/*@media only screen and (device-width: 768px) {*/
+/*#loginLogo{
+position: relative;
+    top:25px;
+    left:30%;
+}
+#loginForm{
+    margin-left:55%;
+}*/
+/*}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {*/
+    /* For portrait layouts only */
+    /*#loginLogo {
+        left: 40%;
+    }
+
+    #loginForm {
+        margin-left: 5%;
+    }*/
+/*}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {*/
+  /* For landscape layouts only */
+  /*#loginLogo{
+    left:40%;
+}*/
+/*}*/
+
+/*--------------- Layout , navbar design -------------*/
+/*.navbar ul li a:hover, .navbar ul li.selected a {
+    font-weight: bold;
+    color:red;
+    text-decoration: none;
+    line-height: 25px;
+    height: 50px;
+}*/
+
+#logoHeader{
+padding-top:2%;
+}
+
+.nav-top-margin{
+    margin-top:1%;
+}
+
+.menuBlock:hover:not(.active){
+     background-color: rgba(0, 0, 0, .125);
+}
+.appleLogo{
+    position: relative;
+    bottom:7px;
+}
+
+.srcu-brand {
+  float:right;
+  padding: 19px 15px;
+  margin-top:18px;
+  font-weight:bold;
+  font-size: 32px;
+  line-height: 28px;
+  color:#b12029; 
+}
+
+.navbar-menu{
+    font-size:18px;
+    font-weight:bold;  
+}
+
+li.loginUserNav{
+  float:right;
+  height: 50px;
+  padding: 20px 45px;
+  font-size: 18px;
+  line-height: 12px;
+  margin-top:0px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px black, 0 0 25px grey, 0 0 5px #8a8587;
+}
+
+
+/*#floatbar {
+    position:relative;
+}*/
+
+div.popup {
+    position:absolute;
+    top:-115px;
+    left:87%;
+    height:150px;
+    width:280px;
+    border-radius:10px;
+    background:#ccc;
+    display:none;
+     color: #1c355e !important;
+    text-shadow:1px 1px 2px white;
+    padding:10px;
+    /*opacity:0.8;*/
+    box-shadow:-2px 2px 8px grey;
+    
+}
+
+/*--------------- Layout , body design -------------*/
+
+/*.srcu-body{
+    padding-top: 2%;
+}*/
+
+/*----------------------Login-------------*/
+#loginBody {
+    width: 100%;
+    height: 100%;
+   /* background-image: url('../img/pics/SRCUSwoosh.png');*/
+  
+}
+h2.red{
+     text-shadow: 2px 2px 4px #000000;
+    font-weight:bold;
+}
+
+/*#appleLogoLogin{
+  position: relative;
+  left:22%;
+  top:-100px;
+}*/
+#loginLogo{
+    margin: 10% auto 5%;
+    padding-left:5%;
+    /*position: relative;
+    top:45px;
+    left:10%;*/    /*30%*/
+    /*width:80%;*/
+}
+#loginBox {
+    background-image: url('../img/pics/backToSchool.jpg');
+    height: 375px;
+    width: 500px;
+    border: 1px solid #c5b9ac;
+    margin: 0 auto;
+    /*position:absolute;
+    left:20%;*/     /*38%*/
+    /*top:13em;*/
+    box-shadow: 5px 10px 15px rgba(0,0,0, 0.3);
+    border-radius:10px;
+}
+
+#loginTitle{
+    position: relative;
+    top:25px;
+    left:52%;
+    font-size:6em;
+    /*float:right*/
+}
+
+#loginForm{
+    margin-left:3%;
+    margin-right:3%;
+
+
+}
+.loginError{
+    padding-top:22%;
+    padding-left:5%;
+    font-weight:bold;
+}
+
+
+
+
+/*************************************Liaison bag library*************************************/
+#grid{
+        padding-top:1%;
+}
+
+.webgrid-table {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    width: 95%;
+    display: table;
+    border-collapse: separate;
+    border: solid 1px #c5b9ac;
+    background-color: white;
+    margin-left: 3%;
+
+}
+
+    .webgrid-table td, th {
+        border: 1px solid #c5b9ac;
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-table td{
+        font-weight:500;
+        font-size:13px;
+        font-family:sans-serif;      
+    }
+.webgrid-header {
+    background-color: #c5b9ac;
+    color:  #4f4337;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    text-align: left;
+   
+}
+
+.webgrid-footer {
+}
+
+.webgrid-row-style {
+    padding: 3px 7px 2px;    
+}
+
+.webgrid-alternating-row {
+    background-color: #edeae6;
+    padding: 3px 7px 2px;
+}
+
+tr .webgrid-header {
+    color:white;
+}
+
+
+/*----------- Dashboard------------*/
+
+.dashBox{
+    border: 2px #e7e5e5 solid;
+    /*width: 100%;*/
+    height: 140px;
+    /*border-radius:15px;*/
+    margin:2%;
+    color:#473d31;
+    font-weight:bold;      
+}
+
+.dashBox .table > tbody > tr > td {
+     vertical-align: middle;
+     padding-left:5%;
+}
+
+.schoolIcon > tbody > tr > td {
+     vertical-align: middle;
+     text-align:center;
+     padding-left:2%;
+}
+
+
+/*---------Admin----------------*/
+.schoolBox{
+    /*border: 2px #e7e5e5 solid;*/
+    height: 60px;
+    margin:6%;
+    color:#473d31;
+    font-weight:bold; 
+    font-size:12px; 
+    width:180px;
+    /*padding-left:2px;*/
+    
+}
+
+
+a.editSchool
+{
+    padding:2px;
+    text-decoration:none;
+}
+
+a.editSchool:hover
+{
+    font-size:large;
+    color:white;
+    
+}
+
+
+/*------------------- Branch-------------------------------*/
+
+.BRdashBox{
+    /*border: 2px #e7e5e5 solid;*/
+    /*width: 100%;*/
+    height: 223px;
+    /*border-radius:15px;*/
+    padding-bottom:2%;
+    margin:5%;
+    color:#473d31;
+    font-weight:bold;      
+}
+
+#BranchModal{
+top:10%;
+/*right:50%;*/
+outline: none;
+}
+
+.action{
+    width:8%;
+}
+
+/* -------------------  Contact Us ---------------------*/
+
+/*Deposit dept Email Notification table*/
+#SMtable {
+    width: 60%;
+}
+
+#SMtitle {
+    font-weight: 600;
+}
+
+#SMtable, .SMth, .SMtd {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.SMth, .SMtd {
+    padding: 5px;
+    text-align: left;
+}
+
+.SMth {
+    background-color: #B12029;
+    color: white;
+}
+
+.SMtr:nth-child(odd) {
+    background-color: #c5b9ac;
+}
+
+.SMtr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.contactUsForm{
+    border:1px solid gray; 
+    width:40%; 
+    position:absolute; 
+    left:35%; 
+    padding:40px; 
+    border-radius:20px;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+/* -------------------------Marketing Tab--------------------------*/
+.marketingTabFrame{
+    margin-left:2%; 
+    margin-top: 4%; 
+    margin-right:4%;
+    line-height: 26px;
+}
+
+.marketingWebContent{
+    border:1px solid #c5b9ac; 
+    width: 900px; 
+    padding:20px; 
+    border-radius:10px; 
+    line-height:26px;
+}
+
+.logoBox
+{
+    border:1px solid #bdbdbd; 
+    border-radius:10px;
+    padding: 3%; 
+    margin-top:5%;
+    margin-right:3%;
+    font-size:14px; 
+    text-align:center;
+   
+}
+
+.logoImage
+{
+    border:1px solid #8a8587; 
+    margin-top:10%;
+    border-radius:4px;
+     box-shadow: 5px 5px 5px #888888;
+}
+
+.DLbutton{
+    margin-bottom:10px;
+}
+
+.flyerBox
+{
+    border:1px solid #bdbdbd; 
+    border-radius:10px;
+    padding: 3%; 
+    margin-top:5%;
+    margin-right:3%;
+    font-size:14px; 
+    text-align:center;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.flyerImage
+{
+    border:1px solid #8a8587; 
+    margin-top:10%;
+}
+
+.onBoardingEmailBox
+{
+    border:1px solid #bdbdbd; 
+    border-radius:10px;
+    padding: 3%; 
+    margin-top:2%;
+    margin-right:5%; 
+    text-align:center;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.onBoardingEmailImage
+{
+    border:1px solid #8a8587; 
+    margin-top:20%;
+    margin-left:-2px;
+}
+
+.marketingUpdateNewTag {
+    width:40px;
+    position:relative;
+    bottom:95px; 
+    left:35px;
+}

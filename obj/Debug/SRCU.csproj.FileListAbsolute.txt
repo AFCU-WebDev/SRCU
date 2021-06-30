@@ -58,3 +58,16 @@ C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\obj\Debug\SRCU.csproj.CoreCompile
 C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\obj\Debug\SRCU.csproj.CopyComplete
 C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\obj\Debug\SRCU.dll
 C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\obj\Debug\SRCU.pdb
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\EntityFramework.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\EntityFramework.SqlServer.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Owin.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\EntityFramework.xml
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\EntityFramework.SqlServer.xml
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Ghostscript.NET.dll
+C:\Users\fnamdarian\Documents\GitHub\SRCU\SRCU\bin\Ghostscript.NET.xml

@@ -1,0 +1,76 @@
+﻿@using SRCUBagTracking.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    <!------- style bundles------------------------ -->
+    @Styles.Render("~/Content/css/bootstrap")
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("~/jQuery/theme/css")
+    @Styles.Render("~/Content/fontawesome4")
+
+    <!-- all minified/bundled Scripts ---------------->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/script")
+
+    @RenderSection("scripts", required: false)
+    @{
+        var user = Session["user"] as Login;
+    }
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="row">
+            @* ---logo header--------------------------------------------------------------------------------------------------------------------- *@
+            <div id="logoHeader">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="col-md-12">
+                            <img src="~/Content/img/logos/apple-logo_192x115.png" width="150" class="appleLogo" />
+                            <span class="srcu-brand">SRCU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* --- Navigation bar begin ------------------------------------------------------------------------------------------------------------*@
+           
+            @* --- Navigation bar End---------------------------------------------------------------------------------------------------------------- *@
+
+
+            @* --- body of each page----------------------------------------------------------------------------------------------------------------- *@
+            <div class="srcu-body">
+                @RenderBody()
+            </div>
+
+
+        </div>
+        @* ------end of row -------------------------------------------------------------------------------------------------------------------------- *@
+    </div>
+    @* ------end of container-Fluid ------------------------------------------------------------------------------------------------------------------ *@
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+
+        //active navbar by click
+        $('.nav li').click(function (e) {
+            var hrefAttribute = $(this).attr("href");
+            var currentActive = $(".active").attr("href");
+            if (hrefAttribute !== currentActive) {
+                currentActive.removeClass("active");
+                href.addClass('active');
+            }
+            // e.preventDefault();
+        });
+
+    });
+</script>

@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "SRCU Resources";
+    var BranchId = Session["BranchId"];
+}
+
+
+@if (@BranchId.Equals(160100) || @BranchId.Equals(160200))
+{
+    @Html.Partial("_AdminNavigation")
+}
+else
+{
+    @Html.Partial("_LiaisonNavigation")
+}
+<div class="container">
+    <br />  <h3> SRCU Documents </h3><br /><br />
+    <div>
+        <ul class="nav nav-tabs responsive" id="pTabs">
+            <li class="documentTab active"><a data-toggle="tab" href="#tab1">Member Application</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab2">Direct Deposit Application</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab3">SRCU Log Documents</a></li>
+            <li class="documentTab"><a data-toggle="tab" href="#tab4">SRCU Hiring Documents</a></li>
+        </ul>
+        <div class="tab-content responsive">
+            <div class="tab-pane fade in active panel" id="tab1">
+                <table style="border-top:hidden;" class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Member Application</td>
+                            <td><a a href="https://www.applefcu.org/Content/docs/SRCU/Member_Application_2016.pdf" target="_blank" class="btn btn-info"> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Student Application</td>
+                            <td><a href="https://www.applefcu.org/docs/default-source/srcu/student_application_0818.pdf?sfvrsn=749bc709_2" target="_blank" class="btn btn-info"> Download</a>            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade panel" id="tab2">
+                <table style="border-top:hidden;" class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Fairfax County</td>
+                            <td><a a href="~/Content/docs/DirectDepositApp/Direct_Deposit_fairfax_2009.pdf" target="_blank" class="btn btn-info" download> Download</a>   </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Fauquier County</td>
+                            <td><a href="~/Content/docs/DirectDepositApp/Direct_Deposit_Fauquier_2016.pdf" target="_blank" class="btn btn-info" download> Download</a>   </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Frederick County</td>
+                            <td><a href="~/Content/docs/DirectDepositApp/Direct_Deposit_frederick_2010.pdf" target="_blank" class="btn btn-info" download> Download</a>   </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Loudoun County</td>
+                            <td><a href="~/Content/docs/DirectDepositApp/Direct_Deposit_loudoun_2016.pdf" target="_blank" class="btn btn-info" download> Download</a>   </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Prince William County</td>
+                            <td><a href="~/Content/docs/DirectDepositApp/Direct_Deposit_princewilliam_2016.pdf" target="_blank" class="btn btn-info" download> Download</a>     </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Stafford County</td>
+                            <td><a href="~/Content/docs/DirectDepositApp/Direct_Deposit_stafford_2016.pdf" target="_blank" class="btn btn-info" download> Download</a>     </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade panel" id="tab3">
+                <table style="border-top:hidden;" class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Deposit Log</td>
+                            <td><a a href="~/Content/docs/LogDocs/SRCU DEPOSIT LOG.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Safe Log</td>
+                            <td><a href="~/Content/docs/LogDocs/SRCU SAFE LOG.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Time Log</td>
+                            <td><a href="~/Content/docs/LogDocs/SRCU TIME LOG.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Cash Transfer Log</td>
+                            <td><a href="~/Content/docs/LogDocs/SRCU CASH TRANSFER LOG.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Student Referrals Log</td>
+                            <td><a href="~/Content/docs/LogDocs/SRCUStudentReferrals.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade panel" id="tab4">
+                <table style="border-top:hidden;" class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Job Descriptions</td>
+                            <td><a a href="~/Content/docs/HiringDocs/SRCU Job Descriptions.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Apple Knowledge Quiz</td>
+                            <td><a href="~/Content/docs/HiringDocs/SRCU Apple_Quiz.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Sample Interview Questions</td>
+                            <td><a href="~/Content/docs/HiringDocs/Sample Interview Questions.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Sample Interview Questions 2</td>
+                            <td><a href="~/Content/docs/HiringDocs/SampleInterviewQuestions2.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Content/img/icons/PDFIcon.png" />Parental Consent Form</td>
+                            <td><a href="~/Content/docs/HiringDocs/ParentalConsentForm.pdf" target="_blank" class="btn btn-info" download> Download</a>            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

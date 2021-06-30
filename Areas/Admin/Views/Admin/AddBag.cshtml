@@ -1,0 +1,123 @@
+﻿@model SRCUBagTracking.Models.Bag
+
+@{
+    ViewBag.Title = "Add a New Bag";
+}
+@Html.Partial("_AdminNavigation")
+<div class="col-md-12">
+    
+    <br />
+    <div class="col-md-push-2 col-md-4"> <h2>Add New Bag</h2> </div><br />  <br />  
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @*<h5 class="pull-right no-border"> @Html.HiddenFor(m => m.dateSubmitted, "{0:MM-dd-yyyy HH:mm tt}")</h5>*@  
+            <div class="col-md-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })                 
+                @Html.HiddenFor(model => model.school_ID, new {  @Value = ViewBag.SchoolId})
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bagNumber, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.bagNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.bagNumber, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.deposits, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.deposits, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.deposits, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.memberApps, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.memberApps, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.memberApps, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dollarAmount, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.dollarAmount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.dollarAmount, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.completedByTeller, htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.completedByTeller, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.completedByTeller, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+            </div>
+            <!--end column 6-->
+
+            <div class="col-md-6">                
+               <!--This field is commented out since we want a system dateTime . In case we need to be able to edit this date we will uncomment it(FN-05/19/2016)-->
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dateSubmitted, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.dateSubmitted,"{0:MM-dd-yyyy HH:mm tt}", new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.dateSubmitted, "", new { @class = "text-danger small bold" })
+                    </div>                    
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dateCompletedDeposits, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.dateCompletedDeposits, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.dateCompletedDeposits, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dateCompletedApps, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.dateCompletedApps, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.dateCompletedApps, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AppFaxed, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.AppFaxed ,new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.AppFaxed, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.handDeliver, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.handDeliver, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.handDeliver, "", new { @class = "text-danger small bold" })
+                    </div>
+                </div>
+
+                <br /><br /><br /><br />
+                <div class="form-group">
+                    <div class="col-md-pull-1 col-md-2">
+                        <input type="submit" value="Add Bag" class="btn btn-primary" width="250" />
+                    </div>
+                </div>
+            </div>
+            <!--end column 6-->
+        </div>
+    }
+
+    <div>
+     @*   @Html.ActionLink("Back to List", "SchoolBag", new { area="Admin", Controller="Admin", Id= })*@
+    </div>
+    </div>
+ <!--end column 12-->
+
+        
