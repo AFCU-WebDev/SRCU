@@ -911,7 +911,6 @@
     <Content Include="Areas\Branch\Views\Branch\BranchSchoolBag.cshtml" />
     <Content Include="Areas\Branch\Views\Branch\BranchWork.cshtml" />
     <Content Include="Areas\Branch\Views\Branch\Index.cshtml" />
-    <Content Include="Areas\Branch\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Branch\Views\web.config" />
     <Content Include="Areas\Branch\Views\_ViewStart.cshtml" />
     <None Include="Content\docs\TrainingVids\MemberService\adlcp_rootv1p2.xsd">

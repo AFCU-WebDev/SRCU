@@ -1,25 +1,23 @@
 ﻿@using SRCUBagTracking.Models
 @{
     var branchName = Session["branchName"];
- }
+}
 
-<div class="navbar navbar-default nav-top-margin">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse navbar-menu ">
-            <ul class="nav navbar-nav navbar-right">
-                <li id="floatbar" class="loginUserNav">
-                    Welcome @branchName Branch User
-                </li>
-                <li class="menuBlock yup">@Html.ActionLink("Home", "Index", new { area = "Branch", Controller = "Branch" })</li>
-                @*<li class="menuBlock">@Html.ActionLink("Logout", "Login", new { area = "", Controller = "Account" })</li>*@
-            </ul>            
-        </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        @*<img src="~/Content/img/logos/SRCULogo.png" width="200" class="appleLogo" />*@
+        Welcome @branchName Branch User
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                @Html.ActionLink("Home", "Index", new { area = "Branch", Controller = "Branch" }, new { @class = "nav-link" })
+            </li>
+
+        </ul>
     </div>
-</div>
+</nav>
