@@ -324,7 +324,7 @@ div.popup {
 /*--------------- Layout , body design -------------*/
 
 /*.srcu-body{
-    padding-top: 2%;
+    height: 100%;
 }*/
 
 /*----------------------Login-------------*/
@@ -641,4 +641,17 @@ outline: none;
     position:relative;
     bottom:95px; 
     left:35px;
+}
+
+.container-fluid-customSize {
+padding: 0;
+}
+
+.navbar-nav {
+margin-left: auto;
+padding: 15px;
+}
+
+.navbar-brand {
+padding: 15px;
 }

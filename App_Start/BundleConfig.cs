@@ -20,11 +20,11 @@ namespace SRCU
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                         "~/Scripts/bootstrap.*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/Site.css"));
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/Site.css"));
         }
     }
 }
