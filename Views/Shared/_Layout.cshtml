@@ -9,21 +9,8 @@
     <title>@ViewBag.Title </title>
     <!-- style bundles -->
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/jQuery/theme/css")
-    @Styles.Render("~/Content/fontawesome4")
-</head>
-
-<body>
-    <div class="container-fluid container-fluid-customSize">
-
-        @* --- body of each page----------------------------------------------------------------------------------------------------------------- *@
-        <div class="srcu-body">
-            @RenderBody()
-        </div>
-
-        <footer class="margin-bottom"></footer>
-
-    </div>
+    @Styles.Render("~/themes/css")
+    @* @Styles.Render("~/Content/fontawesome4")*@
 
     <!-- all minified/bundled Scripts -->
     @Scripts.Render("~/bundles/jquery")
@@ -31,9 +18,19 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/script")
-    @Scripts.Render("~/bundles/maskInput")
+    @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
+</head>
+
+<body>
+    <div class="container-fluid container-fluid-customSize">
+
+        @* --- body of each page----------------------------------------------------------------------------------------------------------------- *@
+            @RenderBody()
+
+        <footer class="margin-bottom"></footer>
+
+    </div>
 
 </body>
 </html>

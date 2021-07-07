@@ -20,28 +20,28 @@
     <br />  <h3> Marketing </h3><br /><br />
     <div>
         <ul class="nav nav-tabs responsive" id="pTabs">
-            <li class="documentTab active"><a data-toggle="tab" href="#tab1">Style Guide and Branding</a></li>
-            <li class="documentTab"><a data-toggle="tab" href="#tab2">Logo</a></li>
-            <li class="documentTab"><a data-toggle="tab" href="#tab3">Print Collateral</a></li>
-            <li class="documentTab"><a data-toggle="tab" href="#tab4">Web Content</a></li>
-            <li class="documentTab"><a data-toggle="tab" href="#tab5">Student On-Boarding</a></li>
+            <li class="documentTab nav-item"><a data-toggle="tab" class="nav-link active" href="#tab1">Style Guide and Branding</a></li>
+            <li class="documentTab nav-item"><a data-toggle="tab" class="nav-link" href="#tab2">Logo</a></li>
+            <li class="documentTab nav-item"><a data-toggle="tab" class="nav-link" href="#tab3">Print Collateral</a></li>
+            <li class="documentTab nav-item"><a data-toggle="tab" class="nav-link" href="#tab4">Web Content</a></li>
+            <li class="documentTab nav-item"><a data-toggle="tab" class="nav-link" href="#tab5">Student On-Boarding</a></li>
             @if (@BranchId.Equals(160100) || @BranchId.Equals(160200))
             {
                 <li class="documentTab"><a data-toggle="tab" href="#tab6">Upload</a></li>
             }
         </ul>
-        <div class="tab-content responsive">
 
+        <div class="tab-content responsive">
             @* ****************** Tab 1 - style Guid and branding ************* *@
-            <div class="tab-pane fade in active panel" id="tab1">
-                <div style="padding-top:0px; " class="panel-body">
+            <div  class="tab-pane fade show active" id="tab1">
+                <div style="padding-top:0px; ">
                     <div class="marketingTabFrame">
                         @* *********** begin style & Guide content ************ *@
-                        <table style="border-top:hidden;" class="table table-responsive ">
+                        <table class="table table-responsive ">
                             <tbody>
                                 <tr>
-                                    <td><img src="~/Content/img/icons/PDFIcon.png" />SRCU Style Guide</td>
-                                    <td><a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info"> View</a> <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info" download> Download</a></td>
+                                    <td class="border-0"><img src="/SRCU/Content/img/icons/PDFIcon.png" />SRCU Style Guide</td>
+                                    <td class="border-0"><a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info"> View</a> <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank" class="btn btn-info" download> Download</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -50,7 +50,7 @@
             </div>
 
             @* ******************* Tab 2 - Logos ******************* *@
-            <div class="tab-pane fade panel" id="tab2">
+            <div class="tab-pane fade" id="tab2">
                 <div style="padding-top:0px; " class=" panel-body marketingTabFrame">
                     <h4>Note: Please refer to <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank">Style Guide</a> before downloading.</h4>
                     <div class="col-md-push-2 col-md-3 logoBox">
@@ -70,7 +70,7 @@
             </div>
 
             @* ********************* Tab 3 - Print Collateral ******************** *@
-            <div class="tab-pane fade panel" id="tab3">
+            <div class="tab-pane fade" id="tab3">
                 <div style="padding-top:0px; " class="col-md-12 panel-body marketingTabFrame">
                     @******* Letters*******@
                     <div class="col-md-12">
@@ -80,7 +80,7 @@
                             <div class="col-md-push-1 col-md-3 flyerBox" style="margin-top:30PX;">
                                 <strong>@item.fileTitle</strong><br />
                                 @*Add "/SRCUBagTracker" to the document and image path for windows authentication/ AppleNet*@
-                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
+                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/SRCU/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
                             </div>
                         }
                         <div class="col-md-9"></div>
@@ -94,7 +94,7 @@
                             <div class="col-md-push-1 col-md-3 flyerBox" style="margin-top:30PX;">
                                 <strong>@item.fileTitle</strong><br />
                                 @*Add "/SRCUBagTracker" to the document and image path for windows authentication/ AppleNet*@
-                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
+                                <a href="@string.Format("/Content/docs/Marketing/UploadedFiles/{0}.pdf", @item.fileName)" target="_blank" download=""> <img class="flyerImage" width="180" height="235" src="@string.Format("/SRCU/Content/img/pics/Marketing/{0}.png", @item.fileName)" /> </a>
                             </div>
                         }
 
@@ -104,7 +104,7 @@
             </div>
 
             @* ******************** Tab 4 - Web Content ************* *@
-            <div class="tab-pane fade panel" id="tab4">
+            <div class="tab-pane fade" id="tab4">
                 <div style="padding-top:0px;" class="panel-body marketingTabFrame">
                     @*<h6 style="color:black;">Date: @DateTime.Today.ToShortDateString() </h6><br />*@
                     <h4>Web Content  - Last Updated 12/01/2016</h4><br />
@@ -147,7 +147,7 @@
             </div>
 
             @* ******************* Tab 5 - Onborading Student ************* *@
-            <div class="tab-pane fade panel" id="tab5">
+            <div class="tab-pane fade" id="tab5">
                 <div style="padding-top:0px; " class="col-md-12 panel-body marketingTabFrame">
                     <h4>NOTE: These emails are for reference only.</h4>
                     <p style=" line-height:28px; padding:5% 5% 0 5%; font-weight:500; font-size:16px;">The below emails are automatically delivered to new members, ages 13-17, as part of Apple’s comprehensive on-boarding program. The initial email is sent within 24 hours of account opening and the remaining are sent once a week thereafter. <strong>These emails should not be printed and provided to students, nor are they available to be sent on-demand, in order to avoid duplicate messaging. </strong></p>
@@ -171,7 +171,7 @@
             </div>
             @* ****************** Tab 6 - Upload ************* *@
 
-            <div class="tab-pane fade panel" id="tab6">
+            <div class="tab-pane fade" id="tab6">
                 <div style="padding-top:0px; " class="panel-body">
                     <h4 style=" margin-top:3%">Add new PDF</h4>
                     @using (Html.BeginForm("AdminMarketing", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))

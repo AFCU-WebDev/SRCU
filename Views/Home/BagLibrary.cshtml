@@ -4,9 +4,18 @@
     ViewBag.Title = "Bag List";
     WebGrid grid = new WebGrid(Model, canPage: true, rowsPerPage: 25);
     grid.Pager(WebGridPagerModes.All);
+
+    //var user = Session["user"] as Login;
+    var schoolName = Session["schoolName"];
+    var branchName = Session["branchName"];
+    var branchManager = Session["branchManager"];
+    var branchPhone = Session["branchPhone"];
+    var branchEmail = Session["branchEmail"];
 }
 
 @Html.Partial("_LiaisonNavigation")
+
+<h3 style="text-align:center; padding: 60px 60px ;">Welcome @schoolName</h3>
 
 <div id="grid">
     @{

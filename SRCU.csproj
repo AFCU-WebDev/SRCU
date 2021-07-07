@@ -1069,6 +1069,7 @@
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />
     <Content Include="Scripts\jquery-ui-i18n.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
