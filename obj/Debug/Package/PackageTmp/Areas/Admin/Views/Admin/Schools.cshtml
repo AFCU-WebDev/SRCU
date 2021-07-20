@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SRCUBagTracking.Models.School>
+@{
+    ViewBag.Title = "Select Your School";
+}
+@Html.Partial("_AdminNavigation")
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-header">Schools Home</h2>
+            <hr />
+        </div>
+
+
+
+
+        @* Today statistics *@
+        <div class="row allSchools">
+            @foreach (var item in @ViewBag.schoolName)
+            {
+
+                <a href="@Url.Action("SchoolBag", "Admin", new { schoolId = item.school_ID })" class="mb-3 text-decoration-none">
+
+                    <div class="col-md-2">
+                        <div class="schoolBox">
+                            <table class="table schoolIcon">
+                                <thead>
+                                    <tr>
+                                        <td height="30" class="lightCyan-green_Background" align="left">
+                                            @*****Display School Icon in the box*****@
+                                            <img src="~/Content/img/icons/school.png" height="40" />
+
+                                            @*****Display School Name in the box*****@
+                                            @item.schoolName
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+
+            }
+
+
+        </div>
+
+
+
+    </div>
+
+    @* ***** Buttons ***** *@
+    <div class=" row  btn_area">
+        <div class="col-3">
+            <a href="@Url.Content("~/Admin/Admin/AddSchool")" type="button" class="btn CTA_btn">Add New School</a>
+        </div>
+        <div class="col-3" >
+            <a href="@Url.Content("~/Admin/Admin/SchoolsDetail")" type="button" class="btn CTA_btn">Update Schools</a>
+        </div>
+
+    </div>
+</div>

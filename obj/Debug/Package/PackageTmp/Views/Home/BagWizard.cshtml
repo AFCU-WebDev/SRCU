@@ -1,0 +1,144 @@
+﻿@model SRCUBagTracking.Models.Bag
+
+@{
+    ViewBag.Title = "Bag Wizard";
+
+}
+@Html.Partial("_LiaisonNavigation")
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="container mt-5">
+        <div class="col-md-12">
+            <h2>New Bag?</h2>
+            <hr />
+        </div>
+        <div class="bg-white rounded shadow m-3 p-2">
+            <div class="modal-dialog modal-lg ml-5" role="document">
+                <div class="modal-content border-0">
+                    <div class="modal-header">
+                        <h5 class="pull-right no-border"> @Html.HiddenFor(m => m.dateSubmitted, "{0:MM-dd-yyyy HH:mm tt}")</h5>
+                    </div>
+                    <div class="modal-body">
+                        Do you have work for your partner branch?
+                        <button type="button" class="btn btn-default" id="workYes">Yes</button>
+                        <button type="button" class="btn btn-primary" id="workNo" @*data-dismiss="modal"*@>No</button>
+                    </div>
+                    <div class="modal-body" style="display:none;" id="appsCounter">
+                        How many new Applications do you have today?
+                        @Html.TextBoxFor(m => m.memberApps, new { @class = "Form-Control", @tabindex = 1})
+                        @Html.ValidationMessageFor(m => m.memberApps, "", new { @class = "text-danger small bold" })
+                    </div>
+                    <div class="modal-body" style="display:none;" id="depositCounter">
+                        How many deposits do you have today?
+                        @Html.TextBoxFor(m => m.deposits, new
+                   {
+                       htmlattribute = new { @tabindex = 2 }@*, @Value = "0"*@}) <span id="depositError"></span>
+                        @Html.ValidationMessageFor(m => m.deposits, "", new { @class = "text-danger small bold" })
+                    </div>
+
+                    <div class="modal-body" style="display:none;" id="dollarAmt">
+                        Dollar Amount : $
+                        @Html.TextBoxFor(m => m.dollarAmount, new { htmlattribute = new { @tabindex = 3 } })
+                        @Html.ValidationMessageFor(m => m.dollarAmount, "", new { @class = "text-danger small bold" })
+                    </div>
+                    <div class="modal-body" style="display:none;" id="bagCounter">
+                        What is the bag number?
+                        @Html.EditorFor(m => m.bagNumber, new { htmlattribute = new { @tabindex = 4 } })
+                        @Html.ValidationMessageFor(m => m.bagNumber, "", new { @class = "text-danger small bold" })
+                    </div>
+                    <div class="modal-body" id="liaisonComments" style="display:none;">
+                        Any Comments?
+                        @Html.TextAreaFor(m => m.liasonComment, new { @tabindex = 5, @rows = "2", @cols = "50" })
+                    </div>
+                    <div class="modal-body" style="display:none;" id="handDeliver">
+                        <input type="checkbox" id="handDeliver" class="handDeliverCheckBox" value="true" name="handDeliverCheckBox" />
+                        <span class="brownOrange bold">
+                            Bag will be delivered by the liaison to the branch.
+                            Courier service will be cancelled for your branch today.
+                        </span>
+                    </div>
+                    <div class="modal-body lightBlue bold" style="display:none;" id="appsFax">
+                        <input type="checkbox" id="appsFaxNo" class="appsFaxCheckBox" value="true" name="appsFaxCheckBox" />
+                        <span>I'm Transmitting my Applications Electronically.</span>
+                        <span class=" faxNo darkgrey" style="display:none;">&#128224; SRCU FAX#: 703-225-1323</span>
+                    </div>
+                    <div class="modal-body red bold" style="display:none;" id="couriercancelled">
+                        <input type="checkbox" id="couriercancelled" class="courierCancellCheckBox" value="true" name="courierCancellCheckBox" />
+                        <span>There is No bag today. I understand the courier will be cancelled for today only as a result.</span>
+                    </div>
+                    <div class="modal-footer">
+                        @*<button type="button" class="btn btn-default next" id="next">Next</button>*@
+                        @Html.HiddenFor(q => q.school_ID)
+                        <button type="submit" class="btn btn-success" id="submit" name="submit">Finish</button>
+                        <button type="reset" class="btn btn-secondary pull-left" id="resetWizard" name="reset">Start Over</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    }
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            //slide down if No work clicked -- No work Today Scenario
+            $("#workNo").click(function () {
+                $("#workYes").attr('disabled', 'disabled');
+                $("#couriercancelled").slideDown();
+            });
+            //slide down How many apps question - if have work
+            $("#workYes").click(function () {
+                $("#workNo").attr('disabled', 'disabled');
+                $("#liaisonComments").slideDown();
+                $("#appsCounter").slideDown();
+            });
+            //Slide down How many deposits question & app fax checkbox if focusout with mouse or tab
+            $("#appsCounter").focusout(function () {
+                var appNum = $("#memberApps").val();
+                if (appNum != 0) {
+                    $("#appsFax").slideDown();
+                }
+
+                $("#depositCounter").slideDown();
+            });
+
+            //it will display the fax number if the App fax checkbox checked
+            $("#appsFaxNo").change(function () {
+                if (this.checked) {
+                    $(".faxNo").fadeIn(2000);
+                }
+            });
+
+            //Slide down Dollar Amount question if focusout with mouse or tab
+            $("#depositCounter").focusout(function () {
+                $("#dollarAmt").slideDown();
+            });
+            //Slide down Bag counter question if focusout with mouse or tab
+            $("#dollarAmt").focusout(function () {
+                $("#bagCounter").slideDown();
+            });
+            //Slide down handDeliver checkbox question if focusout with mouse or tab
+            $("#bagCounter").focusout(function () {
+                $("#handDeliver").slideDown();
+            });
+
+            // start over button
+            $("#resetWizard").click(function () {
+                location.reload(true);
+            });
+
+
+            ////////$("#next").click(function () {
+            ////////    $(".next").slideDown();
+            ////////});
+        });
+
+    </script>

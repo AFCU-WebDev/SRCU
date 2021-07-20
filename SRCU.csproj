@@ -913,6 +913,7 @@
     <Content Include="Areas\Branch\Views\Branch\Index.cshtml" />
     <Content Include="Areas\Branch\Views\web.config" />
     <Content Include="Areas\Branch\Views\_ViewStart.cshtml" />
+    <Content Include="Content\docs\MembershipApplication2021.pdf" />
     <None Include="Content\docs\TrainingVids\MemberService\adlcp_rootv1p2.xsd">
       <SubType>Designer</SubType>
     </None>

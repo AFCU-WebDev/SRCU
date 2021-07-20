@@ -1,0 +1,86 @@
+﻿@using SRCUBagTracking.Models
+@model Login
+@{
+    ViewBag.Title = "SRCU Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon icon" type="image/ico" href="@Url.Content("~/Content/img/icons/SRCU.ico")" />
+    @*<link rel="shortcut icon icon" type="image/ico" href="@Url.Content("~/Content/icon/SRCU.ico")" />*@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @* External link to css and scripts *@
+    <link type="text/css" rel="stylesheet" href="~/Content/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/fontawesome4/font-awesome.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/css/Site.css" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/modernizr-2.8.3.js"></script>
+    
+</head>
+<body id="loginBody">
+    <div class="container">
+        <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <img id="loginLogo" src="~/Content/img/logos/SRCULogoWelcome.png" />
+                    <div id="loginBox" class="col-sm-8">
+                        @*Login Error message*@
+                        <div class="red loginError">
+                            <p> @TempData["loginError"] </p>
+                            <p> @TempData["permissionError"] </p>
+                        </div>
+
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                //UserName
+                                <div class="form-group margin-top padding-left">
+                                    @Html.LabelFor(m => m.username, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(m => m.username, new { @class = "form-control", placeholder = "Password" })<br />
+                                        @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger small bold" })
+                                    </div>
+                                </div>
+
+                                //Password
+                                <div class="form-group padding-left">
+                                    @Html.LabelFor(m => m.password, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(m => m.password, new { @class = "form-control" })<br />
+                                        @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger small bold" })
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>*@
+
+                                //Submit button
+                                <div class="form-group padding-left">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Log in" class="btn btn-success" />
+                                        @*@Html.ActionLink("Rigister", "Register", "Account", new { @class = "btn btn-default" })*@
+                                    </div>
+                                </div>
+                            }
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</body>
+</html>

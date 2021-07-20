@@ -6,57 +6,71 @@
     grid.Pager(WebGridPagerModes.All);
 }
 @Html.Partial("_AdminNavigation")
-<div class="col-md-12">
-    <br />
-    <div class="col-md-push-4 col-md-6 margin-left "> <h2>@ViewBag.schoolName School Bag</h2> </div><br />  <br />
-   <br /><br />
-    <div class="col-md-1 margin-left"><a href="@Url.Action("AddBag", "Admin", new { schoolId = @ViewBag.SchoolId })" type="button" class="btn btn-primary pull-right">Add New Bag</a></div>
-    <div class="col-md-10 margin-left"><a href="@Url.Action("SchoolProfile", "Admin", new { schoolId = @ViewBag.SchoolId })" type="button" class="btn btn-primary pull-right">School Profile</a></div><br /><br />
+
+<div class="m-5">
+
+    <a href="@Url.Action("SchoolProfile", "Admin", new { schoolId = @ViewBag.SchoolId })" type="button" class="btn btn-link">  <h2 class="page-header text-decoration-ul">@ViewBag.schoolName School Bag <i class="fas fa-caret-right"></i></h2></a> <hr />
+
+    <div class="row justify-content-between mb-5 mt-5">
+            <div class="mr-5 ml-3 col-2"><a href="@Url.Action("AddBag", "Admin", new { schoolId = @ViewBag.SchoolId })" type="button" class="btn CTA_btn">Add New Bag</a></div>
+        <div class="ml-5 ">
+            <table class=" mr-3">
+                <tr>
+                    
+                    <td class="p-2 white_Background red bold border-0">Table Color Guide:</td>
+                    <td class="p-2 lightGreen_bg">Yes Deposit, Yes App </td>
+                    <td class="p-2 lightBlue_bg">No Deposit, Yes App </td>
+                    <td class="p-2 lightYellow-bg">Hand Delivered </td>
+                    <td class="p-2 grey_Background">No Bag</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div id="grid" class="col-md-12">
+
+    <div id="grid">
         @{
             @grid.GetHtml(@*htmlAttributes: new { id = "DataTable" },*@
-                                                 tableStyle: "webgrid-table",
-                                                 headerStyle: "webgrid-header",
-                                                 footerStyle: "webgrid-footer",
-                                                 //alternatingRowStyle: "webgrid-alternating-row",
-                                                 rowStyle: "webgrid-row-style",
-                                                 columns: grid.Columns(
-                                                 // grid.Column("recid", "ID"),
-                                                 grid.Column("dateSubmitted", "Date Submitted"),
-                                                 grid.Column("bagNumber", "Bags #", canSort: false),
-                                                 grid.Column("deposits", "Deposits #", canSort: false),
-                                                 grid.Column("dateCompletedDeposits", "Deposits Completed", canSort: false),
-                                                 grid.Column("memberApps", "Apps #", canSort: false),
-                                                 grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
-                                                 grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
-                                                 grid.Column("completedByTeller", "Teller ID", canSort: false),
-                                                 grid.Column("handDeliver", "HD"),
-                                                 grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLink("Read", "AdminComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
-                                                 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                                 @if (@item.liasonComment != null && @item.liasonComment != "")
-                                                 {
-                                                     <img src="~/Content/img/icons/sendComment.png" width="18" />
-                                                 }
-                                                 else
-                                                 {
-                                                     <span>&nbsp; &nbsp;&nbsp;</span>
-                                                 }
-                                          
-                                                 @if (@item.branchComment != null && @item.branchComment != "")
-                                                 {
-                                                     <span>&nbsp;   </span>  <img src="~/Content/img/icons/chatbubbles.png" width="21" />
-                                                 }
-                                                 </text>),
-                                                 grid.Column(header: "Action", format: @<text>
-                                                 @Html.ActionLink("Edit |", "UpdateBag", new { recId = item.rec_ID })
-                                                 @Html.ActionLink(" Delete", "DeleteBag", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#DeleteModal" }) </text>)
-                                          
-                                                                   ));
+            tableStyle: "table",
+            headerStyle: "webgrid-header",
+            footerStyle: "webgrid-footer",
+            //alternatingRowStyle: "webgrid-alternating-row",
+            rowStyle: "webgrid-row-style",
+            columns: grid.Columns(
+            // grid.Column("recid", "ID"),
+            grid.Column("dateSubmitted", "Date Submitted"),
+            grid.Column("bagNumber", "Bags #", canSort: false),
+            grid.Column("deposits", "Deposits #", canSort: false),
+            grid.Column("dateCompletedDeposits", "Deposits Completed", canSort: false),
+            grid.Column("memberApps", "Apps #", canSort: false),
+            grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
+            grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
+            grid.Column("completedByTeller", "Teller ID", canSort: false),
+            grid.Column("handDeliver", "HD"),
+            grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLink("Read", "AdminComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
+                                                             &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            @if (@item.liasonComment != null && @item.liasonComment != "")
+                 {
+                <img src="~/Content/img/icons/sendComment.png" width="18" />
+                 }
+                 else
+                 {
+                <span>&nbsp; &nbsp;&nbsp;</span>
+                 }
+
+            @if (@item.branchComment != null && @item.branchComment != "")
+                 {
+                <span>&nbsp;   </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
+                 }
+            </text>),
+            grid.Column(header: "Action", format: @<text>
+                @Html.ActionLink("Edit |", "UpdateBag", new { recId = item.rec_ID })
+                @Html.ActionLink(" Delete", "DeleteBag", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#DeleteModal" }) </text>)
+
+            ));
         }
 
     </div>
-
+</div>
     <!-- COMMENT Modal -->
     <div class="modal fade bs-example-modal-lg" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
@@ -98,19 +112,19 @@
 
 
                 if (deposit == 0 && (appNumber.length == 0 || appNumber == 0)) {
-                    $(this).addClass("grey_Background grey");
+                    $(this).addClass("grey_Background darkgrey");
                     $(this).find(".action a").remove();
                     $(this).find("img").remove();
                 }
                 else if (handDeliver == "True") {
-                    $(this).addClass("lightBrownOrange_Background darkgrey");                                     
+                    $(this).addClass("lightYellow-bg darkgrey");
                 }
-                else if (deposit == 0 && (appNumber.length != 0 || appNumber!=0)) {
-                    $(this).addClass("lightBlue_Background white");
+                else if (deposit == 0 && (appNumber.length != 0 || appNumber != 0)) {
+                    $(this).addClass("lightBlue_bg darkgrey");
                 }
 
                 else {
-                    $(this).addClass("white_Background darkgrey");
+                    $(this).addClass("lightGreen_bg darkgrey");
                 }
             });
 
