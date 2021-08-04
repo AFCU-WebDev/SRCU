@@ -54,7 +54,7 @@
                 @* ******************* Tab 2 - Logos ******************* *@
                 <div class="tab-pane fade" id="tab2">
                     <div class="m-5">
-                        <h4>Note: Please refer to <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank">Style Guide</a> before downloading.</h4>
+                        <p>Note: Please refer to <a href="~/Content/docs/Marketing/styleGuid/SRCU-StyleGuide.pdf" target="_blank">Style Guide</a> before downloading.</p>
 
                         <div class="row">
 
@@ -130,7 +130,7 @@
                 <div class="tab-pane fade" id="tab4">
                     <div class="m-5">
                         @*<h6 style="color:black;">Date: @DateTime.Today.ToShortDateString() </h6><br />*@
-                        <h4>Web Content  - Last Updated 12/01/2016</h4><br />
+                        <h4 id="webUpdatedDate">Web Content  - Last Updated 08/02/2021</h4><br />
                         <p> <i>Whenever you have any information regarding Apple on your school’s website, use the following content:</i></p>
                         <div class="marketingWebContent">
                             <p class="bold">APPLE FEDERAL CREDIT UNION</p>
@@ -143,7 +143,7 @@
                                     <li><strong>Location in School:</strong> <i>@schoolLocation</i><br /></li>
                                     <li><strong>Hours of Operation:</strong> <i>@schoolHours</i></li>
                                 </ul>
-                                <p>With more than 20 <a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">branches</a> across Northern Virginia, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Online Banking</a>, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Mobile Apps</a>*, as well as access to more than 53,000 Surcharge-FREE** ATMs nationwide, no matter where you go, we’re nearby.</p>
+                                <p>With 20 <a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">branches</a> across Northern Virginia, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Online Banking</a>, <a href="https://www.applefcu.org/personal-banking/digital-services" target="_blank">FREE Mobile Apps</a>*, as well as access to more than 53,000 Surcharge-FREE** ATMs nationwide, no matter where you go, we’re nearby.</p>
                             </div>
                             <br />
 
@@ -154,16 +154,16 @@
                                 <li href="https://www.applefcu.org/Onlineaccess" target="_blank">
                                     24/7 Account Access
                                     <ul>
-                                        <li>FREE <a href="https://www.applefcu.org/Onlineaccess/OLBanking" target="_blank">Online</a> & <a href="https://www.applefcu.org/Onlineaccess/Mobilebanking#tab2">Text</a> Banking<sup>1</sup></li>
-                                        <li><a href="https://itunes.apple.com/us/app/apple-federal-credit-union/id421571209?mt=8" target="_blank">FREE iPad®, iPhone®</a>, and <a href="https://play.google.com/store/apps/details?id=org.applecu.mobile" target="_blank">Android™</a> Apps<sup>2</sup>, including <a href="https://www.applefcu.org/Onlineaccess/Mobilebanking#tab1" target="_blank">check deposit</a></li>
-                                        <li>FREE <a href="https://www.applefcu.org/Onlineaccess/eServices" target="_blank">Bill Pay</a> – pay businesses AND people</li>
-                                        <li><a href="https://www.applefcu.org/Onlineaccess/olbanking#tab3" target="_blank">Transfer Money</a> – between your accounts at Apple and other institutions, as well as people</li>
+                                        <li>FREE <a href="https://www.applefcu.org/DigitalServices" target="_blank">Online</a> & <a href="https://www.applefcu.org/DigitalServices/TextBanking"  target="_blank">Text</a> Banking<sup>1</sup></li>
+                                        <li><a href="https://itunes.apple.com/us/app/apple-federal-credit-union/id421571209?mt=8" target="_blank">FREE iPad®, iPhone®</a>, and <a href="https://play.google.com/store/apps/details?id=org.applecu.mobile" target="_blank">Android™</a> Apps<sup>2</sup>, including <a href="https://www.applefcu.org/DigitalServices/MobileDeposit" target="_blank">check deposit</a></li>
+                                        <li>FREE <a href="https://www.applefcu.org/DigitalServices/BillPay" target="_blank">Bill Pay</a> – pay businesses AND people</li>
+                                        <li><a href="https://www.applefcu.org/DigitalServices/TransferMoney" target="_blank">Transfer Money</a> – between your accounts at Apple and other institutions, as well as people</li>
                                     </ul>
                                 </li>
                                 <li>More than <a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">53,000+ Surcharge-FREE* ATMs</a> nationwide</li>
-                                <li><a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">20+ Northern Virginia Branches</a> – more than any other Credit Union</li>
+                                <li><a href="https://www.applefcu.org/AppleWeb/Locations" target="_blank">20 Northern Virginia Branches</a> – more than any other Credit Union</li>
                             </ul>
-                            <p>For more information or to join, visit <a href="http://www.applefcu.org/" target="_blank">AppleFCU.org</a> or fill out an application <a href="https://www.applefcu.org/Content/docs/SRCU/Member_Application_2016.pdf?utm_source=srcu&&utm_medium=site&&utm_content=memberapp&&utm_campaign=liaisonmarketing" target="_blank">here</a>.</p>
+                            <p>For more information or to join, visit <a href="http://www.applefcu.org/" target="_blank">AppleFCU.org</a> or fill out an application <a href="~/Content/docs/MembershipApplication2021.pdf" target="_blank">here</a>.</p>
                             <div style="line-height:18px !important;"><span class="disclaimers">*Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. **Other institutions may impose a foreign ATM fee surcharge. See fee schedule. <sup>1</sup>Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. <sup>2</sup>Requires mobile Internet access from your device; airtime and carrier fees per your contract/plan may apply. The trademarks, logos and names of other companies, products and services are the property of their respective owners.</span></div>
                         </div>
                     </div>
@@ -294,6 +294,29 @@
             $(".readMore").css("display", "inline");
         });
     });
+
+
+    let now = new Date();
+    let day = now.getDate();
+    let month = now.getMonth();
+    let year = now.getFullYear();
+
+    let monthsName = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+    let lastUpdated = document.querySelector("#webUpdatedDate");
+    lastUpdated.innerHTML = `Web Content - Last Updated on ${monthsName[month]} ${day} ,${year}`;
 </script>
 
 

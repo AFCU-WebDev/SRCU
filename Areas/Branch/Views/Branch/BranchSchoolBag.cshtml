@@ -8,10 +8,10 @@
 
 @Html.Partial("_BranchNavigation")
 @*<div class="col-md-1 margin-left"><a href="@Url.Action("AddBag", "Admin", new { schoolId = @ViewBag.SchoolId })" type="button" class="btn btn-primary pull-right">Add New Bag</a></div><br /><br />*@
-<div id="grid" class="col-md-12 ">
-    <br />
-    <div class="col-md-push-4 col-md-6 margin-left "> <h2>@ViewBag.schoolName School Bag</h2> </div><br />  <br />
-    <br /><br />
+<div id="grid" class="col-md-12 mt-5">
+
+    <div class="col-md-push-4 col-md-6 margin-left mb-5"> <h3 class="catalinaBlue"><u>@ViewBag.schoolName School Bag💰</u></h3> </div>
+
     @{
         @grid.GetHtml(@*htmlAttributes: new { id = "DataTable" },*@
         tableStyle: "table",

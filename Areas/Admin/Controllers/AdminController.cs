@@ -122,6 +122,8 @@ namespace SRCUBagTracking.Areas.Admin.Controllers
             //date comment has been submitted
             ViewBag.submittedDate = bag.dateSubmitted;
 
+            ViewBag.message = "Hello SRCU Admin";
+
             return View(bag);
         }
 
@@ -129,7 +131,7 @@ namespace SRCUBagTracking.Areas.Admin.Controllers
         public ActionResult AdminMarketing()
         {
             //Letter Category from srcuFileDetails db - The code check if there is any letters in sql table and list it in table
-            var LetterCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Letters")
+            var LetterCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Letters" && q.Active == true)
                                        select q).ToList();
            
             //saved the Letter categoty file in viewbag
@@ -137,7 +139,7 @@ namespace SRCUBagTracking.Areas.Admin.Controllers
 
 
             //Flyers Category from srcuFileDetails db - The code check if there is any Flyers in sql table and list it in table
-            var FlyersCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Flyers")
+            var FlyersCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Flyers" && q.Active == true)
                                        select q).OrderBy(q=> q.Order_appearance).ToList();
             //saved the Flyers Category Files in viewbag
             ViewBag.FlyersCategoryFiles = FlyersCategoryFiles;
@@ -248,9 +250,9 @@ namespace SRCUBagTracking.Areas.Admin.Controllers
         //Getting School Bag page with related school ID
         public ActionResult SchoolBag(int schoolId)
         {
-
+            var currentSchoolYear = DateTime.Parse("2017-08-01");
             //Getting all the Bags with related school Id from [srcuBagReport] SQL table 
-            var bag = from Bag in _srcuRepositoryInterface.GetBags(schoolId)
+            var bag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= currentSchoolYear)
                       select Bag;
             ViewBag.SchoolId = schoolId;
 

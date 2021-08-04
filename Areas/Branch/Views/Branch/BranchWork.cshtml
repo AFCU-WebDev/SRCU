@@ -39,50 +39,52 @@
         </thead>
         <tbody>
             @*<tr>
-                    <td>&#128188; Bag Number: @ViewBag.BagNumber</td>
-                    <td></td>
-                </tr>*@
+            <td>&#128188; Bag Number: @ViewBag.BagNumber</td>
+            <td></td>
+        </tr>*@
             <tr>
                 <td>&#128181; Deposit Number: @ViewBag.Deposits</td>
                 <td>
-                @if (ViewBag.dateCompletedDeposits != null)
-                {
-                <input type="checkbox" id="deposits" class="depositsCheckBox" value=@ViewBag.dateCompletedDeposits. name="dateCompletedDeposits" checked disabled/>
-                @Html.HiddenFor(model => model.dateCompletedDeposits)
-                }
-                else
-                {
-                    <input type="checkbox" id="deposits" class="depositsCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
-                }   
-                    
-                    Deposit Completed</td>
+                    @if (ViewBag.dateCompletedDeposits != null)
+                    {
+                        <input type="checkbox" id="deposits" class="depositsCheckBox" value=@ViewBag.dateCompletedDeposits . name="dateCompletedDeposits" checked disabled />
+                        @Html.HiddenFor(model => model.dateCompletedDeposits)
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="deposits" class="depositsCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
+                    }
+
+                    Deposit Completed
+                </td>
             </tr>
             @*<tr>
-                        <td class="fa fa-comment">Deposit Comments:</td>
-                        <td>
-                            @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4" })
-                        <textarea rows="5" cols="58" @Html.HiddenFor(model => model.liasonComment) />
-                    </td>
-            </tr>*@
+                    <td class="fa fa-comment">Deposit Comments:</td>
+                    <td>
+                        @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4" })
+                    <textarea rows="5" cols="58" @Html.HiddenFor(model => model.liasonComment) />
+                </td>
+        </tr>*@
             <tr>
                 <td>&#128240; Apps Number: @ViewBag.Apps</td>
                 <td>
-                @if (ViewBag.dateCompletedApps != null)
-                {
-                    <input type="checkbox" id="apps" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled/>
-                    @Html.HiddenFor(model => model.dateCompletedApps)
-                }
-                else
-                {
-                    <input type="checkbox" id="apps" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
-                }
-                Application Completed</td>
+                    @if (ViewBag.dateCompletedApps != null)
+                    {
+                        <input type="checkbox" id="apps" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled />
+                        @Html.HiddenFor(model => model.dateCompletedApps)
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="apps" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
+                    }
+                    Application Completed
+                </td>
             </tr>
             <tr>
                 <td><span class="fa fa-comment"></span> Liaison Comments:</td>
                 <td>
 
-                    @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4" , @readonly = true})
+                    @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4", @readonly = true })
                 </td>
             </tr>
             <tr>
@@ -92,7 +94,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"> <input  id ="submitBranchWork" type="submit" value="Complete" class="btn btn-primary pull-right" /></td>
+                <td colspan="2"> <input id="submitBranchWork" type="submit" value="Complete" class="btn btn-primary pull-right" /></td>
             </tr>
         </tbody>
     </table>

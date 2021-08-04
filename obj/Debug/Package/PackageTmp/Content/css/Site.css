@@ -48,6 +48,11 @@ h1 {
     padding-left:22px;
     padding-right:24px;
 }
+
+a {
+    color: #d22734;
+    text-decoration: none;
+}
 /* -------------color pallet----------------*/
 .catalinaBlue {
     color: #1c355e;
@@ -753,3 +758,20 @@ margin: 30px auto;
 .page-header {
     color: #1c355e;
 }
+
+button#workYes.btn, button#workNo.btn {
+    font-weight:700;
+    border-radius: 10px;
+    background: #f0f0f0;
+    box-shadow: 2px 2px 4px #d0d0d0, -2px -2px 4px #f0f0f0;
+}
+
+    button#workYes.btn:hover, button#workYes.btn:focus, button#workYes.btn:active {
+        background: #a7d1a7;
+        color: green;
+    }
+
+    button#workNo.btn:hover, button#workNo.btn:focus, button#workNo.btn:hover:active {
+        background: #e0a7a7;
+        color: #d22734;
+    }

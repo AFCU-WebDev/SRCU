@@ -41,8 +41,8 @@ namespace SRCUBagTracking.Areas.Branch.Controllers
             public ActionResult BranchSchoolBag(int schoolId)
             {
                 //adde the date to remove all the records before August 1st for the new school year
-                var Date2019 = DateTime.Parse("2019-08-01");
-                var bag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= Date2019)
+                var currentSchoolYear = DateTime.Parse("2021-08-01");
+                var bag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= currentSchoolYear)
                           select Bag;
                     ViewBag.SchoolId = schoolId;
 
@@ -131,8 +131,9 @@ namespace SRCUBagTracking.Areas.Branch.Controllers
                 ViewBag.liaisonComment = bag.liasonComment;
                 ViewBag.branchComment = bag.branchComment;
                 ViewBag.submittedDate = bag.dateSubmitted;
+                ViewBag.message = "Hello SRCU Branch";
 
-                return View(bag);
+            return View(bag);
             }
         }
     }

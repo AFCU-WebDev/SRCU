@@ -48,6 +48,11 @@ h1 {
     padding-left:22px;
     padding-right:24px;
 }
+
+a {
+    color: #d22734;
+    text-decoration: none;
+}
 /* -------------color pallet----------------*/
 .catalinaBlue {
     color: #1c355e;
@@ -321,20 +326,52 @@ padding-top:2%;
     font-weight:bold;  
 }
 
+/* Tooltip container */
+.tooltipPop {
+    position: relative;
+    display: block;
+}
 
-div.popup {
+.tooltipPop h3{
+    text-align:center;
+}
+
+    .tooltipPop .tooltiptext {
+        visibility: hidden;
+        width: 280px;
+        background-color: RGBA(204,204,204,0.5);
+        color: #1c355e !important;
+        text-align: left;
+        border-radius: 6px;
+        padding: 5px 0;
+        text-shadow: 1px 1px 2px white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        /* Position the tooltip */
+        position: absolute;
+        top: 60px;
+        left: 56%;
+        z-index: 1;
+        transition: all 800ms ease-in-out;
+        box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.2);
+    }
+
+.tooltipPop:hover .tooltiptext {
+    visibility: visible;
+}
+.popup {
     position:absolute;
-    top:-115px;
-    left:87%;
+    top:115px;
+    left:57%;
     height:150px;
     width:280px;
     border-radius:10px;
     background:#ccc;
-    display:none;
+    display:block;
      color: #1c355e !important;
     text-shadow:1px 1px 2px white;
     padding:10px;
-    /*opacity:0.8;*/
+    opacity:0.8;
     box-shadow:-2px 2px 8px grey;
 }
 
@@ -753,3 +790,20 @@ margin: 30px auto;
 .page-header {
     color: #1c355e;
 }
+
+button#workYes.btn, button#workNo.btn {
+    font-weight:700;
+    border-radius: 10px;
+    background: #f0f0f0;
+    box-shadow: 2px 2px 4px #d0d0d0, -2px -2px 4px #f0f0f0;
+}
+
+    button#workYes.btn:hover, button#workYes.btn:focus, button#workYes.btn:active {
+        background: #a7d1a7;
+        color: green;
+    }
+
+    button#workNo.btn:hover, button#workNo.btn:focus, button#workNo.btn:hover:active {
+        background: #e0a7a7;
+        color: #d22734;
+    }

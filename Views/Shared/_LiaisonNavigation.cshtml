@@ -18,8 +18,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li>
-                <div class="popup">
+            <!--<li>
+                <div class="popup" id="example">
                     <p style="line-height:28px; font-size:12px;">
                         School Name: @schoolName<br />
                         Apple Branch : @branchName <br />
@@ -27,9 +27,9 @@
                         Branch Phone: @branchPhone <br />
                         Email:<a href="mailto:@branchEmail" target="_top"> @branchEmail</a>
                     </p>
-                </div>
+                </div>-->
                 @*<h3 style="">Welcome @schoolName</h3>*@
-            </li>
+            <!--</li>-->
             <li class="nav-item">
 
                 @Html.ActionLink("Home", "BagLibrary", new { area = "", Controller = "Home" }, new { @class = "nav-link" })
@@ -61,24 +61,24 @@
 </nav>
 
 @*<script>
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        ////active navbar by click
+            ////active navbar by click
 
-        $('.navbar-nav li').click(function (e) {
-            var $this = $(this);
-            var currentActive = $(".active");
-            if (!$this.hasClass('active')) {
-                currentActive.removeClass("active");
-                $this.addClass('active');
-            }
-            //e.preventDefault();
+            $('.navbar-nav li').click(function (e) {
+                var $this = $(this);
+                var currentActive = $(".active");
+                if (!$this.hasClass('active')) {
+                    currentActive.removeClass("active");
+                    $this.addClass('active');
+                }
+                //e.preventDefault();
+            });
+
+
+
+
+
+
         });
-
-
-
-
-
-
-    });
-</script>*@
+    </script>*@
