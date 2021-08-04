@@ -46,7 +46,10 @@ grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
 grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
 grid.Column("completedByTeller", "Teller ID", canSort: false),
 grid.Column("handDeliver", "HD"),
-grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLink("Read", "AdminComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
+grid.Column("liasonComment", "Liaison Comment", canSort: false),
+grid.Column("branchComment", "Branch Comment", canSort: false),
+
+@*grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLink("Read", "AdminComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
                                                              &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 @if (@item.liasonComment != null && @item.liasonComment != "")
      {
@@ -61,7 +64,7 @@ grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLin
      {
     <span>&nbsp;   </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
      }
-</text>),
+</text>),*@
 grid.Column(header: "Action", format: @<text>
     @Html.ActionLink("Edit |", "UpdateBag", new { recId = item.rec_ID })
     @Html.ActionLink(" Delete", "DeleteBag", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#DeleteModal" }) </text>)

@@ -26,7 +26,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 09:21:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/SchoolBag.cshtml">
-      <publishTime>08/03/2021 10:05:12</publishTime>
+      <publishTime>08/04/2021 11:41:27</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/SchoolProfile.cshtml">
       <publishTime>07/15/2021 12:46:37</publishTime>
@@ -56,7 +56,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 09:21:05</publishTime>
     </File>
     <File Include="Areas/Branch/Views/Branch/BranchSchoolBag.cshtml">
-      <publishTime>08/03/2021 10:05:12</publishTime>
+      <publishTime>08/04/2021 11:56:25</publishTime>
     </File>
     <File Include="Areas/Branch/Views/Branch/BranchWork.cshtml">
       <publishTime>08/03/2021 10:05:12</publishTime>
@@ -203,10 +203,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/19/2020 01:52:02</publishTime>
     </File>
     <File Include="bin/SRCU.dll">
-      <publishTime>08/04/2021 10:17:38</publishTime>
+      <publishTime>08/04/2021 12:08:34</publishTime>
     </File>
     <File Include="bin/SRCU.pdb">
-      <publishTime>08/04/2021 10:17:38</publishTime>
+      <publishTime>08/04/2021 12:08:34</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -3014,7 +3014,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 10:31:47</publishTime>
     </File>
     <File Include="Views/Home/BagLibrary.cshtml">
-      <publishTime>08/04/2021 10:32:05</publishTime>
+      <publishTime>08/04/2021 11:48:18</publishTime>
     </File>
     <File Include="Views/Home/BagWizard.cshtml">
       <publishTime>08/03/2021 10:05:12</publishTime>
