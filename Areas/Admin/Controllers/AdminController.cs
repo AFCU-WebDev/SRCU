@@ -250,7 +250,7 @@ namespace SRCUBagTracking.Areas.Admin.Controllers
         //Getting School Bag page with related school ID
         public ActionResult SchoolBag(int schoolId)
         {
-            var currentSchoolYear = DateTime.Parse("2017-08-01");
+            var currentSchoolYear = DateTime.Parse("2021-08-01");
             //Getting all the Bags with related school Id from [srcuBagReport] SQL table 
             var bag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= currentSchoolYear)
                       select Bag;

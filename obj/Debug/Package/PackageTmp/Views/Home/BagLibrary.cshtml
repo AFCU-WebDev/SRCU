@@ -15,11 +15,36 @@
 
 @Html.Partial("_LiaisonNavigation")
 
-    <h3 style="text-align:center; padding: 60px 60px ;">Welcome @schoolName</h3>
-    <div class="ml-5 mr-5">
-        <div id="grid">
-            @{
-                @grid.GetHtml(@*htmlAttributes: new { id = "DataTable" },*@
+<h3 class="m-5 text-center">Welcome @schoolName</h3>
+<div class="tooltipPop d-none">
+
+    <p class="tooltiptext" @*style="line-height:28px; font-size:12px;"*@>
+        <strong>School Name:</strong> @schoolName<br />
+        <strong>Apple Branch :</strong> @branchName <br />
+        <strong>Assistant Manager: </strong>@branchManager <br />
+        <strong>Branch Phone:</strong> @branchPhone <br />
+        <strong>Email:</strong><a href="mailto:@branchEmail" target="_top"> @branchEmail</a>
+    </p>
+</div>
+
+
+<div class="ml-5 mr-5">
+    <div class="row justify-content-between mb-5">
+        <div class="ml-5 ">
+            <table class=" mr-3">
+                <tr>
+                    <td class="p-2 white_Background red bold border-0">Table Color Guide:</td>
+                    <td class="p-2 lightGreen_bg">Yes Deposit, Yes App </td>
+                    <td class="p-2 lightBlue_bg">No Deposit, Yes App </td>
+                    <td class="p-2 lightYellow-bg">Hand Delivered </td>
+                    <td class="p-2 grey_Background">No Bag</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="grid">
+        @{
+            @grid.GetHtml(@*htmlAttributes: new { id = "DataTable" },*@
 tableStyle: "table",
 headerStyle: "webgrid-header",
 footerStyle: "webgrid-footer",
@@ -36,72 +61,80 @@ grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
 grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
 grid.Column("completedByTeller", "Teller ID", canSort: false),
 grid.Column("handDeliver", "HD"),
-grid.Column(header: "Comments", style: "action", format: @<text> @Html.ActionLink("Read", "LiaisonComments", new { id = "liaisonReadCmnt", recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
-    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-    @if (@item.liasonComment != null && @item.liasonComment != "")
-         {
-        <img src="~/Content/img/icons/sendComment.png" width="18" />
-         }
-         else
-         {
-        <span>&nbsp; &nbsp;&nbsp;</span>
-         }
+grid.Column("liasonComment", "Liaison Comment"),
+grid.Column("branchComment", "Branch Comment")
 
-    @if (@item.branchComment != null && @item.branchComment != "")
-         {
-        <span>&nbsp;   </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
-         }
-    </text>)
+            @*grid.Column(header: "Comments", style: "action",
+                format: @<text> @Html.ActionLink("Read", "BagLibrary", new { id = "", recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
+                        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                @if (@item.liasonComment != null && @item.liasonComment != "")
+                 {
+                    <img src="~/Content/img/icons/sendComment.png" width="18" />
+                 }
+
+                @if (@item.branchComment != null && @item.branchComment != "")
+                 {
+                    <span>&nbsp;   </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
+                 }
+
+                </text>)*@
 ));
-            }
+        }
 
-        </div>
 
-        <!-- COMMENT Modal -->
-        <div class="modal fade bs-example-modal-lg" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">SRCU Comments</h4>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
+    </div>
+    <!-- COMMENT Modal -->
+    <div class="modal fade" id="CommentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">SRCU Comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Comments")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#grid tbody tr").each(function (i, row) {
-                var bagNumber = $(this).find("td:nth-child(2)").text();
-                var deposit = $(this).find("td:nth-child(3)").text();
-                var appNumber = $(this).find("td:nth-child(5)").text();
-                var handDeliver = $(this).find("td:nth-child(9)").html();
-                //hiding HandDelivered column
-                $('table th:nth-child(9), table td:nth-child(9)').hide();
 
-                if (deposit == 0 && (appNumber.length == 0 || appNumber == 0) && handDeliver != "True") {
-                    $(this).addClass("grey_Background grey");
-                    $(this).find(".action a").remove();
-                    $(this).find("img").remove();
-                }
-                else if (deposit == 0 && (appNumber.length != 0 || appNumber != 0) && handDeliver != "True") {
-                    $(this).addClass("lightBlue_Background white");
-                }
+</div>
+<script>
+    $(document).ready(function () {
+        $("#grid tbody tr").each(function (i, row) {
+            var bagNumber = $(this).find("td:nth-child(2)").text();
+            var deposit = $(this).find("td:nth-child(3)").text();
+            var appNumber = $(this).find("td:nth-child(5)").text();
+            var handDeliver = $(this).find("td:nth-child(9)").html();
+            //hiding HandDelivered column
+            $('table th:nth-child(9), table td:nth-child(9)').hide();
 
-                else if (handDeliver == "True") {
-                    $(this).addClass("lightBrownOrange_Background darkgrey");
-                }
-                else {
-                    $(this).addClass("white_Background darkgrey");
-                }
-            });
+            if (deposit == 0 && (appNumber.length == 0 || appNumber == 0)) {
+                $(this).addClass("grey_Background darkgrey");
+                $(this).find(".action a").remove();
+                $(this).find("img").remove();
+            }
+            else if (deposit == 0 && (appNumber.length != 0 || appNumber != 0)) {
+                $(this).addClass("lightBlue_bg darkgrey");
+            }
 
-            $('#CommentModal').click(function () {
-                location.reload(true);
-            });
-
+            else if (handDeliver == "True") {
+                $(this).addClass("lightYellow-bg darkgrey");
+            }
+            else {
+                $(this).addClass("lightGreen_bg darkgrey");
+            }
         });
-    </script>
+
+        $('#CommentModal').click(function () {
+            location.reload(true);
+        });
+        $('#CommentModal').modal(options)
+    });
+</script>

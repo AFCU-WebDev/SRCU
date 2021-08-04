@@ -17,7 +17,6 @@
 
 <h3 class="m-5 text-center">Welcome @schoolName</h3>
 <div class="tooltipPop d-none">
-
     <p class="tooltiptext" @*style="line-height:28px; font-size:12px;"*@>
         <strong>School Name:</strong> @schoolName<br />
         <strong>Apple Branch :</strong> @branchName <br />
@@ -61,8 +60,8 @@ grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
 grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
 grid.Column("completedByTeller", "Teller ID", canSort: false),
 grid.Column("handDeliver", "HD"),
-grid.Column("liasonComment", "Liaison Comment"),
-grid.Column("branchComment", "Branch Comment")
+grid.Column("liasonComment", "Liaison Comment", canSort: false),
+grid.Column("branchComment", "Branch Comment", canSort: false)
 
             @*grid.Column(header: "Comments", style: "action",
                 format: @<text> @Html.ActionLink("Read", "BagLibrary", new { id = "", recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })
@@ -135,6 +134,5 @@ grid.Column("branchComment", "Branch Comment")
         $('#CommentModal').click(function () {
             location.reload(true);
         });
-        $('#CommentModal').modal(options)
     });
 </script>
