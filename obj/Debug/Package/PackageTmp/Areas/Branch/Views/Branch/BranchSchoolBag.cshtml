@@ -43,60 +43,58 @@ grid.Column("dateCompletedApps", "Apps Completed", canSort: false),
 grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.dollarAmount != null ? item.dollarAmount.ToString("#,#.00") : ""),
 grid.Column("completedByTeller", "Teller ID", canSort: false),
 grid.Column("handDeliver", "HD"),
-grid.Column("liasonComment", "Liaison Comment", canSort: false),
-grid.Column("branchComment", "Branch Comment", canSort: false)
 //grid.Column(header: "Comments", style: "action", format: @<text>@Html.ActionLink("Read", "BranchComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })   ,
-@*grid.Column(header: "Action", style:"action",format: @<text>@Html.ActionLink("Open", "BranchWork", new {id="openWork", recId = item.rec_ID, schoolId = item.school_ID}, new { data_toggle = "modal", data_target = "#BranchModal"})
+grid.Column(header: "Action", style:"action",format: @<text>@Html.ActionLink("Open", "BranchWork", new {id="openWork", recId = item.rec_ID, schoolId = item.school_ID}, new { data_toggle = "modal", data_target = "#BranchModal"})
     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
-                    @if (@item.liasonComment != null && @item.liasonComment != "")
-                    {
-                         <img src="~/Content/img/icons/sendComment.png" width="18" />
-                    }
-                    else
-                    {
-                        <span>&nbsp; &nbsp;&nbsp;&nbsp; </span>
-                    }
-                   @if (@item.branchComment != null && @item.branchComment != "")
-                   {
-                        <span>&nbsp;  </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
-                    }
+                        @if (@item.liasonComment != null && @item.liasonComment != "")                      
+                        {                           
+                             <img src="~/Content/img/icons/sendComment.png" width="18" />
+                        }
+                        else
+                        {
+                            <span>&nbsp; &nbsp;&nbsp;&nbsp; </span>
+                        }
+                       @if (@item.branchComment != null && @item.branchComment != "")
+                       {
+                            <span>&nbsp;  </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
+                        }
+                       
+                        </text>)
+ ));
+}
+</div>
 
-                    </text>)*@
-));
-        }
-    </div>
-
-    <!-- Modal -->
-    @*<div class="modal fade bs-example-modal-lg" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"> SRCU Comments</h4>
-                    </div>
-                    <div class="modal-body">
+<!-- Modal -->
+@*<div class="modal fade bs-example-modal-lg" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"> SRCU Comments</h4>
+            </div>
+            <div class="modal-body">
 
                     </div>
                 </div>
             </div>
         </div>*@
 
-    <!-- Modal -->
-    <div class="modal fade bs-example-modal-lg" id="BranchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Complete Daily work</h4>
-                </div>
-                <div class="modal-body">
-
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="BranchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Complete Daily work</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+               
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function () {
         $("#grid tbody tr").each(function (i, row) {

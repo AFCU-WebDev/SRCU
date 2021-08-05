@@ -6,8 +6,8 @@
 }
 
 <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title" id="myModalLabel">Complete Daily work</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
 <div class="modal-body">
 
@@ -119,19 +119,19 @@
         handle: ".modal-header"
     });
 
-    //$(".depositsCheckBox").click(function () {
-    //    if ($(this).is(":checked")) {
-    //        var returnVal = confirm("Are you sure?");
-    //        $(this).attr("checked", returnVal);
-    //    }
-    //    });
+    $(".depositsCheckBox").click(function () {
+        if ($(this).is(":checked")) {
+            var returnVal = confirm("Are you sure?");
+            $(this).attr("checked", returnVal);
+        }
+        });
 
-    //$(".depositsCheckBox").change(function () {
-    //    if ($(this).is(":checked")) {
-    //        $(this).prop('checked', true);
-    //        $(this).prop('disabled', 'disabled');
-    //    }
-    //});
+    $(".depositsCheckBox").change(function () {
+        if ($(this).is(":checked")) {
+            $(this).prop('checked', true);
+            $(this).prop('disabled', 'disabled');
+        }
+    });
     });
 
 </script>

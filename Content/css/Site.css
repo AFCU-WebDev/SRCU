@@ -812,3 +812,10 @@ li.nav-item span.branch-info {
     font-weight: bold;
     text-shadow: 0px 3px 3px rgba(177, 32, 41, 0.4);
 }
+
+#date-panel{
+    border: 1px #ccc solid;
+    padding: 15px 20px;
+    border-radius:10px
+}
+

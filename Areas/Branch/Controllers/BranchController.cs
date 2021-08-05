@@ -131,7 +131,6 @@ namespace SRCUBagTracking.Areas.Branch.Controllers
                 ViewBag.liaisonComment = bag.liasonComment;
                 ViewBag.branchComment = bag.branchComment;
                 ViewBag.submittedDate = bag.dateSubmitted;
-                ViewBag.message = "Hello SRCU Branch";
 
             return View(bag);
             }

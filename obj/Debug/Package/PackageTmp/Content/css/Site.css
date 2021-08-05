@@ -332,27 +332,25 @@ padding-top:2%;
     display: block;
 }
 
-.tooltipPop h3{
-    text-align:center;
-}
-
     .tooltipPop .tooltiptext {
         visibility: hidden;
-        width: 280px;
         background-color: RGBA(204,204,204,0.5);
         color: #1c355e !important;
         text-align: left;
         border-radius: 6px;
         padding: 5px 0;
         text-shadow: 1px 1px 2px white;
-        padding: 10px 20px;
+        padding: 10px 15px;
         border-radius: 10px;
+        font-size: 12px;
+        line-height: 25px;
+        width: 250px;
         /* Position the tooltip */
         position: absolute;
-        top: 60px;
-        left: 56%;
+        top: 40px;
+        right: 3%;
         z-index: 1;
-        transition: all 800ms ease-in-out;
+        transition: all 500ms ease-in-out;
         box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.2);
     }
 
@@ -807,3 +805,17 @@ button#workYes.btn, button#workNo.btn {
         background: #e0a7a7;
         color: #d22734;
     }
+
+li.nav-item span.branch-info {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0px 3px 3px rgba(177, 32, 41, 0.4);
+}
+
+#date-panel{
+    border: 1px #ccc solid;
+    padding: 15px 20px;
+    border-radius:10px
+}
+

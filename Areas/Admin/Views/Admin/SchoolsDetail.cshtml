@@ -12,12 +12,12 @@
 
     <h2 class="page-header">Schools Details</h2>   <hr />
 
-    <div class="mb-5 mt-5 text "><a href="@Url.Content("~/Admin/Admin/AddSchool")" type="button" class="btn CTA_btn">Add New School</a></div>
+    @*<div class="mb-5 mt-5 text "><a href="@Url.Content("~/Admin/Admin/AddSchool")" type="button" class="btn CTA_btn">Add New School</a></div>*@
     <div id="grid">
 
         @{
             @grid.GetHtml(htmlAttributes: new { id = "DataTable" },
-            tableStyle: "table table-responsive text-nowrap",
+            tableStyle: "table",
             headerStyle: "webgrid-header",
             footerStyle: "webgrid-footer",
             alternatingRowStyle: "webgrid-alternating-row",
