@@ -1190,7 +1190,6 @@
     <Content Include="Views\Shared\_MarketingContent.cshtml" />
     <Content Include="Views\Shared\_marketingUpdateNewTag.cshtml" />
     <Content Include="Views\Shared\_branchWorkModal.cshtml" />
-    <Content Include="Views\Shared\_branchWorkData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -43,29 +43,28 @@
                     <td>
                         @if (ViewBag.dateCompletedDeposits != null)
                         {
-                            <input type="checkbox" id="deposits" class="depositsCheckBox" value=@ViewBag.dateCompletedDeposits name="dateCompletedDeposits" checked disabled />
+                            <input type="checkbox" id="deposits" class="completedCheckBox" value=@ViewBag.dateCompletedDeposits name="dateCompletedDeposits" checked disabled />
                             @Html.HiddenFor(model => model.dateCompletedDeposits)
                         }
                         else
                         {
-                            <input type="checkbox" id="deposits" class="depositsCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
+                            <input type="checkbox" id="deposits" class="completedCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
                         }
                         <strong>Deposit Completed</strong>
                     </td>
                 </tr>
                 <tr class="lightBlue_bg">
                     <td><strong>&#128240; Apps Number:</strong> @ViewBag.Apps</td>
-                    <td>
-                        @*<input type="checkbox" id="apps" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />*@
+                    <td>                       
                        
                         @if (ViewBag.dateCompletedApps != null)
                         {
-                            <input type="checkbox" id="apps" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled />
+                            <input type="checkbox" id="apps" class="completedCheckBox" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled />
                             @Html.HiddenFor(model => model.dateCompletedApps)
                         }
                         else
                         {
-                            <input type="checkbox" id="apps" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
+                            <input type="checkbox" id="apps" class="completedCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
                         }
                         <strong>Application Completed</strong>
                     </td>
@@ -93,23 +92,31 @@
 </div>
 <script>
     $(document).ready(function () {
-        $("#BranchModal").draggable({
-            handle: ".modal-header"
-        });
+        //$("#BranchModal").draggable({
+        //    handle: ".modal-header"
+        //});
 
-        $(".depositsCheckBox").click(function () {
-            if ($(this).is(":checked")) {
-                var returnVal = confirm("Are you sure?");
-                $(this).attr("checked", returnVal);
-            }
-        });
+        let CheckboxCompleted = document.querySelector(".completedCheckBox");
+        CheckboxCompleted.addEventListener("change", popup);
+        function popup() {
+            alert("Are you sure?");
+        }
 
-        $(".depositsCheckBox").change(function () {
-            if ($(this).is(":checked")) {
-                $(this).prop('checked', true);
-                $(this).prop('disabled', 'disabled');
-            }
-        });
+        
+        //Removed depositsCheckBox class from Deposits Completed checkbox input
+        //$(".depositsCheckBox").click(function () {
+        //    if ($(this).is(":checked")) {
+        //        var returnVal = confirm("Are you sure?");
+        //        $(this).attr("checked", returnVal);
+        //    }
+        //});
+
+        //$(".depositsCheckBox").change(function () {
+        //    if ($(this).is(":checked")) {
+        //        $(this).prop('checked', true);
+        //        $(this).prop('disabled', 'disabled');
+        //    }
+        //});
 
     });
 

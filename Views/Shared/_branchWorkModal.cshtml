@@ -110,22 +110,24 @@
 
 <script>
     $(document).ready(function() {
-    $("#BranchModal").draggable({
-        handle: ".modal-header"
-    });
+    //$("#BranchModal").draggable({
+    //    handle: ".modal-header"
+    //});
 
-    $(".depositsCheckBox").click(function () {
-        if ($(this).is(":checked")) {
-            var returnVal = confirm("Are you sure?");
-            $(this).attr("checked", returnVal);
-        }
-        });
 
-    $(".depositsCheckBox").change(function () {
-        if ($(this).is(":checked")) {
-            $(this).prop('checked', true);
-            $(this).prop('disabled', 'disabled');
-        }
+        
+    //$(".depositsCheckBox").click(function () {
+    //    if ($(this).is(":checked")) {
+    //        var returnVal = confirm("Are you sure?");
+    //        $(this).attr("checked", returnVal);
+    //    }
+    //    });
+
+    //$(".depositsCheckBox").change(function () {
+    //    if ($(this).is(":checked")) {
+    //        $(this).prop('checked', true);
+    //        $(this).prop('disabled', 'disabled');
+    //    }
     });
     });
 
