@@ -43,9 +43,9 @@ namespace SRCUBagTracking.Controllers
                     AppleNetDbContext db = new AppleNetDbContext();
                     var currentUser = System.Web.HttpContext.Current.User.Identity;
                     //branch member gets a branch view
-                    //var login = "dbalderson";
+                   var login = "dbalderson";
 
-                   var login = currentUser.Name.Replace("AFCU\\", "").ToLower();
+                  //  var login = currentUser.Name.Replace("AFCU\\", "").ToLower();
                     Teller teller = new Teller();
 
                     if (!string.IsNullOrEmpty(login))

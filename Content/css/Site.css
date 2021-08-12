@@ -570,6 +570,17 @@ a.editSchool:hover
         transform: translateY(-7px);
     }
 
+.back-btn {
+    transition: all 500ms ease-in-out;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+.back-btn:hover {
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transform: translateY(-7px);
+}
+
 .allSchools {
 margin: 30px;
 }
