@@ -2,136 +2,122 @@
 
 @{
     ViewBag.Title = "Branch Work";
-    Layout = null;
+   
 }
 
-<div class="modal-header">
-    <h4 class="modal-title" id="myModalLabel">Complete Daily work</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-</div>
-<div class="modal-body">
+
+@{
+    ViewBag.Title = "Branch Work";
+}
+@Html.Partial("_BranchNavigation")
 
 
-    @*<div class="container">
-        <div class="row">
-            <div class="col-md-9">*@
+<div class="container mt-5">
 
+    <h2 class="page-header">Branch Work </h2>   <hr />
     @using (Html.BeginForm())
     {
-        <div> 
-            @Html.HiddenFor(model => model.rec_ID)
-            @Html.HiddenFor(model => model.dateSubmitted)
-            @Html.HiddenFor(model => model.school_ID)
-            @Html.HiddenFor(model => model.bagNumber)
-            @Html.HiddenFor(model => model.deposits)
-            @Html.HiddenFor(model => model.memberApps)
-            @Html.HiddenFor(model => model.handDeliver)
-            @Html.HiddenFor(model => model.liasonComment)
-            @Html.HiddenFor(model => model.dollarAmount)
-            @Html.HiddenFor(model => model.completedByTeller)
-    </div>
-    <table class="table table-striped lightBlue_bg bold">
-        <thead>
-            <tr>
-                <th>Date Submitted: @ViewBag.SubmittedDate</th>
-                <th>&#128188; Bag Number: @ViewBag.BagNumber </th>
-            </tr>
-        </thead>
-        <tbody>
-            @*<tr>
-            <td>&#128188; Bag Number: @ViewBag.BagNumber</td>
-            <td></td>
-        </tr>*@
-            <tr>
-                <td>&#128181; Deposit Number: @ViewBag.Deposits</td>
-                <td>
-                    @if (ViewBag.dateCompletedDeposits != null)
-                    {
-                        <input type="checkbox" id="deposits" class="depositsCheckBox" value=@ViewBag.dateCompletedDeposits . name="dateCompletedDeposits" checked disabled />
-                        @Html.HiddenFor(model => model.dateCompletedDeposits)
-                    }
-                    else
-                    {
-                        <input type="checkbox" id="deposits" class="depositsCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
-                    }
-
-                    Deposit Completed
-                </td>
-            </tr>
-            @*<tr>
-                    <td class="fa fa-comment">Deposit Comments:</td>
-                    <td>
-                        @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4" })
-                    <textarea rows="5" cols="58" @Html.HiddenFor(model => model.liasonComment) />
-                </td>
-        </tr>*@
-            <tr>
-                <td>&#128240; Apps Number: @ViewBag.Apps</td>
-                <td>
-                    @if (ViewBag.dateCompletedApps != null)
-                    {
-                        <input type="checkbox" id="apps" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled />
-                        @Html.HiddenFor(model => model.dateCompletedApps)
-                    }
-                    else
-                    {
-                        <input type="checkbox" id="apps" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
-                    }
-                    Application Completed
-                </td>
-            </tr>
-            <tr>
-                <td><span class="fa fa-comment"></span> Liaison Comments:</td>
-                <td>
-
-                    @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4", @readonly = true })
-                </td>
-            </tr>
-            <tr>
-                <td><span class="fa fa-comment"></span> Branch Comments:</td>
-                <td>
-                    @Html.TextAreaFor(q => q.branchComment, new { @cols = "80", @rows = "4" })
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"> <input id="submitBranchWork" type="submit" value="Complete" class="btn btn-primary pull-right" /></td>
-            </tr>
-        </tbody>
-    </table>
-    }
-
-
-    @*<h4>Date Submitted: @ViewBag.SubmittedDate</h4>
-
-        <p>
-            &#128188; Bag Number: @ViewBag.BagNumber <br />
-            &#128181; Deposit Number: @ViewBag.Deposits <br />
-            &#128240; Apps Number: @ViewBag.Apps
-        </p>*@
+<div>
+    @Html.HiddenFor(model => model.rec_ID)
+    @Html.HiddenFor(model => model.dateSubmitted)
+    @Html.HiddenFor(model => model.school_ID)
+    @Html.HiddenFor(model => model.bagNumber)
+    @Html.HiddenFor(model => model.deposits)
+    @Html.HiddenFor(model => model.memberApps)
+    @Html.HiddenFor(model => model.handDeliver)
+    @Html.HiddenFor(model => model.liasonComment)
+    @Html.HiddenFor(model => model.dollarAmount)
+    @Html.HiddenFor(model => model.completedByTeller)
 </div>
+        <table class="table table-striped">
+            <thead>
+                <tr class="lightBlue_bg">
+                    <th class="border-0">Date Submitted: @ViewBag.SubmittedDate</th>
+                    <th class="border-0">💰 Bag Number: @ViewBag.BagNumber </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>💶 Deposit Number: </strong> @ViewBag.Deposits</td>
 
-@*</div>
+                    <td>
+                        @if (ViewBag.dateCompletedDeposits != null)
+                        {
+                            <input type="checkbox" id="deposits" class="completedCheckBox" value=@ViewBag.dateCompletedDeposits name="dateCompletedDeposits" checked disabled />
+                            @Html.HiddenFor(model => model.dateCompletedDeposits)
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="deposits" class="completedCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedDeposits" />
+                        }
+                        <strong>Deposit Completed</strong>
+                    </td>
+                </tr>
+                <tr class="lightBlue_bg">
+                    <td><strong>&#128240; Apps Number:</strong> @ViewBag.Apps</td>
+                    <td>                       
+                       
+                        @if (ViewBag.dateCompletedApps != null)
+                        {
+                            <input type="checkbox" id="apps" class="completedCheckBox" value=@ViewBag.dateCompletedApps name="dateCompletedApps" checked disabled />
+                            @Html.HiddenFor(model => model.dateCompletedApps)
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="apps" class="completedCheckBox" value=@DateTime.Now.ToShortTimeString() name="dateCompletedApps" />
+                        }
+                        <strong>Application Completed</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="fa fa-comment"></span> <strong>Liaison Comments:</strong> </td>
+                    <td>
+
+                        @Html.TextAreaFor(q => q.liasonComment, new { @cols = "80", @rows = "4", @readonly = true })
+                    </td>
+                </tr>
+                <tr class="lightBlue_bg">
+                    <td><span class="fa fa-comment"></span><strong> Branch Comments:</strong> </td>
+                    <td>
+                        @Html.TextAreaFor(q => q.branchComment, new { @cols = "80", @rows = "4" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row mt-5 mr-4 justify-content-end">
+            <input id="backBranchWork" type="submit" value="Back"  class="btn btn-outline-secondary back-btn m-1" />
+            <input id="submitBranchWork" type="submit" value="Complete" class="btn CTA_btn m-1" />
         </div>
-    </div>*@
+    }
+</div>
 <script>
-    $(document).ready(function() {
-    $("#BranchModal").draggable({
-        handle: ".modal-header"
-    });
+    $(document).ready(function () {
+        //$("#BranchModal").draggable({
+        //    handle: ".modal-header"
+        //});
 
-    $(".depositsCheckBox").click(function () {
-        if ($(this).is(":checked")) {
-            var returnVal = confirm("Are you sure?");
-            $(this).attr("checked", returnVal);
+        let CheckboxCompleted = document.querySelector(".completedCheckBox");
+        CheckboxCompleted.addEventListener("change", popup);
+        function popup() {
+            alert("Are you sure?");
         }
-        });
 
-    $(".depositsCheckBox").change(function () {
-        if ($(this).is(":checked")) {
-            $(this).prop('checked', true);
-            $(this).prop('disabled', 'disabled');
-        }
-    });
+        
+        //Removed depositsCheckBox class from Deposits Completed checkbox input
+        //$(".depositsCheckBox").click(function () {
+        //    if ($(this).is(":checked")) {
+        //        var returnVal = confirm("Are you sure?");
+        //        $(this).attr("checked", returnVal);
+        //    }
+        //});
+
+        //$(".depositsCheckBox").change(function () {
+        //    if ($(this).is(":checked")) {
+        //        $(this).prop('checked', true);
+        //        $(this).prop('disabled', 'disabled');
+        //    }
+        //});
+
     });
 
 </script>

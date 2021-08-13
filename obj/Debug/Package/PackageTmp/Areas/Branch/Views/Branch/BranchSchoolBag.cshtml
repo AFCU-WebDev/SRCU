@@ -44,90 +44,61 @@ grid.Column("dollarAmount", "$ Amount", canSort: false, format: (item) => item.d
 grid.Column("completedByTeller", "Teller ID", canSort: false),
 grid.Column("handDeliver", "HD"),
 //grid.Column(header: "Comments", style: "action", format: @<text>@Html.ActionLink("Read", "BranchComments", new { recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#CommentModal" })   ,
-grid.Column(header: "Action", style:"action",format: @<text>@Html.ActionLink("Open", "BranchWork", new {id="openWork", recId = item.rec_ID, schoolId = item.school_ID}, new { data_toggle = "modal", data_target = "#BranchModal"})
+            @*grid.Column(header: "Action", style: "action", format: @<text>@Html.ActionLink("Open", "_branchWorkModal", new { id = "", recId = item.rec_ID, schoolId = item.school_ID }, new { data_toggle = "modal", data_target = "#BranchModal" })*@
+grid.Column(header: "Action", style: "action", format: @<text>@Html.ActionLink("Open", "BranchWork", new { id = "", recId = item.rec_ID, schoolId = item.school_ID })
     &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+    @if (@item.liasonComment != null && @item.liasonComment != "")
+         {
+        <img src="~/Content/img/icons/sendComment.png" width="18" />
+         }
+         else
+         {
+        <span>&nbsp; &nbsp;&nbsp;&nbsp; </span>
+         }
+    @if (@item.branchComment != null && @item.branchComment != "")
+         {
+        <span>&nbsp;  </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
+         }
 
-                        @if (@item.liasonComment != null && @item.liasonComment != "")                      
-                        {                           
-                             <img src="~/Content/img/icons/sendComment.png" width="18" />
-                        }
-                        else
-                        {
-                            <span>&nbsp; &nbsp;&nbsp;&nbsp; </span>
-                        }
-                       @if (@item.branchComment != null && @item.branchComment != "")
-                       {
-                            <span>&nbsp;  </span> <img src="~/Content/img/icons/chatbubbles.png" width="21" />
-                        }
-                       
-                        </text>)
- ));
-}
-</div>
-
-<!-- Modal -->
-@*<div class="modal fade bs-example-modal-lg" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"> SRCU Comments</h4>
-            </div>
-            <div class="modal-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
-<!-- Modal -->
-<div class="modal fade" id="BranchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Complete Daily work</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-               
-            </div>
-        </div>
+    </text>)
+));
+        }
     </div>
 </div>
+<!---------- scripts for branch work grids --------->
+    <script>
+        $(document).ready(function () {
+            $("#grid tbody tr").each(function (i, row) {
+                var bagNumber = $(this).find("td:nth-child(2)").text();
+                var deposit = $(this).find("td:nth-child(3)").text();
+                var appNumber = $(this).find("td:nth-child(5)").text();
+                var handDeliver = $(this).find("td:nth-child(9)").html();
+                //hiding HandDelivered column
+                $('table th:nth-child(9), table td:nth-child(9)').hide();
 
-<script>
-    $(document).ready(function () {
-        $("#grid tbody tr").each(function (i, row) {
-            var bagNumber = $(this).find("td:nth-child(2)").text();
-            var deposit = $(this).find("td:nth-child(3)").text();
-            var appNumber = $(this).find("td:nth-child(5)").text();
-            var handDeliver = $(this).find("td:nth-child(9)").html();
-            //hiding HandDelivered column
-            $('table th:nth-child(9), table td:nth-child(9)').hide();
+                if (deposit == 0 && (appNumber.length == 0 || appNumber == 0)) {
+                    $(this).addClass("grey_Background darkgrey");
+                    $(this).find(".action a").remove();
+                    $(this).find("img").remove();
+                }
+                else if (deposit == 0 && (appNumber.length != 0 || appNumber != 0)) {
+                    $(this).addClass("lightBlue_bg darkgrey");
+                }
 
-            if (deposit == 0 && (appNumber.length == 0 || appNumber == 0)) {
-                $(this).addClass("grey_Background darkgrey");
-                $(this).find(".action a").remove();
-                $(this).find("img").remove();
-            }
-            else if (deposit == 0 && (appNumber.length != 0 || appNumber != 0)) {
-                $(this).addClass("lightBlue_bg darkgrey");
-            }
+                else if (handDeliver == "True") {
+                    $(this).addClass("lightYellow-bg darkgrey");
+                }
+                else {
+                    $(this).addClass("lightGreen_bg darkgrey");
+                }
+            });
 
-            else if (handDeliver == "True") {
-                $(this).addClass("lightYellow-bg darkgrey");
-            }
-            else {
-                $(this).addClass("lightGreen_bg darkgrey");
-            }
+            $('#submitBranchWork').click(function () {
+                location.reload(true);
+            });
+            $("button .close").click(function () {
+                $("#grid").location.reload(true);
+            });
         });
-
-        $('#submitBranchWork').click(function () {
-            location.reload(true);
-        });
-        $("button .close").click(function () {
-            $("#grid").location.reload(true);
-        });
-    });
-</script>
+    </script>
 

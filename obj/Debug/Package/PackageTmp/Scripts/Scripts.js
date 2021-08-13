@@ -30,3 +30,11 @@
         handle: ".modal-header"
     });
 });
+
+
+let backBtn = document.querySelector(".back-btn");
+backBtn.addEventListener("click", goBack);
+
+function goBack() {
+    window.history.back();
+}

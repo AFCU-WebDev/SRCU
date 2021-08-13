@@ -8,7 +8,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Admin/Views/Admin/AddBag.cshtml">
-      <publishTime>08/05/2021 09:43:11</publishTime>
+      <publishTime>08/06/2021 17:19:20</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/AddSchool.cshtml">
       <publishTime>07/15/2021 12:48:58</publishTime>
@@ -26,7 +26,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 09:21:05</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/SchoolBag.cshtml">
-      <publishTime>08/05/2021 14:54:38</publishTime>
+      <publishTime>08/05/2021 15:34:37</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/SchoolProfile.cshtml">
       <publishTime>07/15/2021 12:46:37</publishTime>
@@ -47,7 +47,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/15/2021 11:38:07</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
-      <publishTime>05/18/2021 09:21:05</publishTime>
+      <publishTime>08/06/2021 11:33:11</publishTime>
     </File>
     <File Include="Areas/Admin/Views/_ViewStart.cshtml">
       <publishTime>05/18/2021 09:21:05</publishTime>
@@ -56,10 +56,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 09:21:05</publishTime>
     </File>
     <File Include="Areas/Branch/Views/Branch/BranchSchoolBag.cshtml">
-      <publishTime>08/05/2021 11:59:43</publishTime>
+      <publishTime>08/11/2021 16:18:35</publishTime>
     </File>
     <File Include="Areas/Branch/Views/Branch/BranchWork.cshtml">
-      <publishTime>08/05/2021 12:03:00</publishTime>
+      <publishTime>08/12/2021 14:10:45</publishTime>
     </File>
     <File Include="Areas/Branch/Views/Branch/Index.cshtml">
       <publishTime>08/05/2021 11:32:51</publishTime>
@@ -203,10 +203,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/19/2020 01:52:02</publishTime>
     </File>
     <File Include="bin/SRCU.dll">
-      <publishTime>08/05/2021 14:55:05</publishTime>
+      <publishTime>08/12/2021 14:14:37</publishTime>
     </File>
     <File Include="bin/SRCU.pdb">
-      <publishTime>08/05/2021 14:55:05</publishTime>
+      <publishTime>08/12/2021 14:14:37</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -281,7 +281,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 10:32:51</publishTime>
     </File>
     <File Include="Content/css/Site.css">
-      <publishTime>08/05/2021 11:26:35</publishTime>
+      <publishTime>08/11/2021 13:03:07</publishTime>
     </File>
     <File Include="Content/docs/DirectDepositApp/Direct_Deposit_fairfax_2009.pdf">
       <publishTime>05/18/2021 09:21:05</publishTime>
@@ -2789,7 +2789,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/18/2021 10:32:49</publishTime>
     </File>
     <File Include="Scripts/Scripts.js">
-      <publishTime>07/02/2021 14:13:28</publishTime>
+      <publishTime>08/11/2021 15:35:56</publishTime>
     </File>
     <File Include="Scripts/src/index.js">
       <publishTime>05/18/2021 10:32:49</publishTime>
@@ -3055,8 +3055,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Shared/_BranchNavigation.cshtml">
       <publishTime>07/02/2021 12:30:34</publishTime>
     </File>
+    <File Include="Views/Shared/_branchWorkModal.cshtml">
+      <publishTime>08/12/2021 13:45:19</publishTime>
+    </File>
     <File Include="Views/Shared/_Comments.cshtml">
-      <publishTime>08/04/2021 10:27:05</publishTime>
+      <publishTime>08/12/2021 13:02:30</publishTime>
     </File>
     <File Include="Views/Shared/_ErrorHandling.cshtml">
       <publishTime>05/18/2021 09:21:06</publishTime>

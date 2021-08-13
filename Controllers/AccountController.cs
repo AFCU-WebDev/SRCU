@@ -26,7 +26,72 @@ namespace SRCUBagTracking.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            
+            // ********** Windows Anthentication **********//****** Comment this section out when need form authentication 9/01/2016*****//
+            //*********** For Form Authentication it's better to remove the Login(Get) code and then publish it.
+            if (ModelState.IsValid)
+            {
+                //Begins Marketing Tab Notification for Admin
+                var past2WeeksDate = DateTime.Today.AddDays(-14);   // 2 weeks from now
+                int recentUploaded = (from q in srcuDb.FileDetailsModels.Where(q => q.dateUploaded >= past2WeeksDate)
+                                      select q).ToList().Count;
+                Session["recentUploaded"] = recentUploaded;
+                //Ends Marketing tab Notification 
+
+
+                try
+                {
+                    AppleNetDbContext db = new AppleNetDbContext();
+                    var currentUser = System.Web.HttpContext.Current.User.Identity;
+                    //branch member gets a branch view
+                   // var login = "dbalderson";
+
+                   var login = currentUser.Name.Replace("AFCU\\", "").ToLower();
+                    Teller teller = new Teller();
+
+                    if (!string.IsNullOrEmpty(login))
+                    {
+                        // begins AppleNet windows Authentication
+                        var windowsUser = WindowsIdentity.GetCurrent();
+                        // Ends AppleNet windows Authentication
+
+                        // AppleNet is using Teller db for windows authentication
+                        teller = db.Tellers.Include("Branch").Include("Position").FirstOrDefault(t => t.Logon.Equals(login) && t.StatusId > 0 && t.StatusId < 4);
+                        Session["user"] = login;
+
+
+                        // Get Branch_ID
+                        var BranchId = teller.BranchId;
+                        Session["BranchId"] = BranchId;
+                        //Getting the branch Name
+                        var branchName = from branch in srcuDb.Branches
+                                         where branch.Branch_ID == BranchId
+                                         select new { branchName = branch.BranchName };
+
+                        // BranchId used in BranchController, Index function
+
+                        Session["branchName"] = branchName.Select(q => q.branchName).First();
+
+                        var SchoolName = (from q in srcuDb.Schools.Where(q => q.schoolName != null && q.active == true && q.Branch_ID == BranchId)
+                                          select q).OrderBy(q => q.schoolName).ToList();
+                        ViewBag.schoolName = SchoolName;
+
+                        /// || BranchId == 160100
+                        if (BranchId == 160200 || BranchId == 160100)
+                        {
+                            return RedirectToAction("Index", "Dashboard", new { area = "Admin" }); 
+                        }
+                        else
+                        {
+                            return View("~/Areas/Branch/Views/Branch/Index.cshtml"); // Direct to Branch site when there is someone from branch try to access SRCU via AppleNet/Window authenticatio
+                        }
+                    }
+                }
+                catch
+                {
+                    return PartialView("_ErrorHandling");
+                }
+
+            }
             // ********** Form Anthentication **********//********* This section needed for both form auth and windows auth ***** 09/01/2016 *****//
             return View();
 
