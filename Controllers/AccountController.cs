@@ -40,12 +40,14 @@ namespace SRCUBagTracking.Controllers
 
                 try
                 {
-                    AppleNetDbContext db = new AppleNetDbContext();
+                    AppleNetDbContext AfcuDb = new AppleNetDbContext();
                     var currentUser = System.Web.HttpContext.Current.User.Identity;
+                   
+                   
                     //branch member gets a branch view
-                   // var login = "dbalderson";
+                  //  var login = "dbalderson";
 
-                   var login = currentUser.Name.Replace("AFCU\\", "").ToLower();
+                    var login = currentUser.Name.Replace("AFCU\\", "").ToLower();
                     Teller teller = new Teller();
 
                     if (!string.IsNullOrEmpty(login))
@@ -55,7 +57,7 @@ namespace SRCUBagTracking.Controllers
                         // Ends AppleNet windows Authentication
 
                         // AppleNet is using Teller db for windows authentication
-                        teller = db.Tellers.Include("Branch").Include("Position").FirstOrDefault(t => t.Logon.Equals(login) && t.StatusId > 0 && t.StatusId < 4);
+                        teller = AfcuDb.Tellers.Include("Branch").Include("Position").FirstOrDefault(t => t.Logon.Equals(login) && t.StatusId > 0 && t.StatusId < 4);
                         Session["user"] = login;
 
 
@@ -88,6 +90,7 @@ namespace SRCUBagTracking.Controllers
                 }
                 catch
                 {
+                    //throw new InvalidOperationException("Insufficient fund");
                     return PartialView("_ErrorHandling");
                 }
 
@@ -113,7 +116,7 @@ namespace SRCUBagTracking.Controllers
                     //{
                     if (srcuDb.Logins.Any(q => q.username == model.username && q.password == model.password))
                     {
-                        // ---- Make First Letter Uppercase
+                        // ---- Make First Letter Uppercase -----
                         var usernameUpperFirstLetter = model.username.Substring(0, 1).ToUpper() + model.username.Substring(1);
                         // --- Get username  ----------------------------------------------------------------------------
                         Session["user"] = new Login { username = usernameUpperFirstLetter };
@@ -153,19 +156,19 @@ namespace SRCUBagTracking.Controllers
                         }
 
                         ////// Branch login
-                        //else if (permission == "2" && BranchId != null)
-                        //{
-                        //    var branchName = from branch in srcuDb.Branches
-                        //                     where branch.Branch_ID == BranchId
-                        //                     select new { branchName = branch.BranchName };
+                        else if (permission == "2" && BranchId != null)
+                        {
+                            //var branchName = from branch in srcuDb.Branches
+                            //                 where branch.Branch_ID == BranchId
+                            //                 select new { branchName = branch.BranchName };
 
-                        //    Session["branchName"] = branchName.Select(q => q.branchName).First();
+                            //Session["branchName"] = branchName.Select(q => q.branchName).First();
 
-                        //    // BranchId used in BranchController, Index function
-                        //    Session["BranchId"] = BranchId;
+                            // BranchId used in BranchController, Index function
+                            Session["BranchId"] = BranchId;
 
-                        //    return RedirectToAction("Index", "Branch", new { area = "Branch", BranchId = Session["BranchId"] });
-                        //}
+                            return RedirectToAction("Index", "Branch", new { area = "Branch", BranchId = Session["BranchId"] });
+                        }
 
                         //Admin login
                         else if (permission == "1" && BranchId != null)
