@@ -43,6 +43,8 @@ namespace SRCUBagTracking.Models
 
         public int Order_appearance { get; set; }
 
+        public bool Active { get; set; }
+
 
 
     }

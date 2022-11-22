@@ -27,9 +27,10 @@ namespace SRCUBagTracking.Controllers
         {
             var schoolId = Convert.ToInt32(Session["schoolID"]);
             //added the date to remove all the records before August 1st for the new school year for Liaison
-            var Date2019 = DateTime.Parse("2019-08-01");
-            var LiaisonBag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= Date2019)
+            var currentSchoolYear = DateTime.Parse("2021-08-01");
+            var LiaisonBag = from Bag in _srcuRepositoryInterface.GetBags(schoolId).Where(q => q.dateSubmitted >= currentSchoolYear)
                              select Bag;
+
             return View(LiaisonBag);
         }
 
@@ -255,7 +256,7 @@ namespace SRCUBagTracking.Controllers
             ViewBag.liaisonComment = bag.liasonComment;
             ViewBag.branchComment = bag.branchComment;
             ViewBag.submittedDate = bag.dateSubmitted;
-
+            ViewBag.message = "Hello SRCU liaison";
             return View(bag);
         }
 
@@ -272,7 +273,7 @@ namespace SRCUBagTracking.Controllers
 
 
             //Flyers Category from srcuFileDetails db - The code check if there is any Flyers in sql table and list it in table
-            var FlyersCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Flyers")
+            var FlyersCategoryFiles = (from q in srcuDb.FileDetailsModels.Where(q => q.fileCategory == "Flyers" && q.Active == true)
                                        select q).OrderBy(q => q.Order_appearance).ToList();
             ViewBag.FlyersCategoryFiles = FlyersCategoryFiles;
             return View();

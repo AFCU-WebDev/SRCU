@@ -45,7 +45,7 @@ namespace SRCUBagTracking.Models
             [Display(Name = "Liaison Comment")]
             public String liasonComment { get; set; }
 
-            [Display(Name = "Liaison Comment")]
+            [Display(Name = "Branch Comment")]
             public String branchComment { get; set; }
 
             [Display(Name = "Hand Delivered?")]

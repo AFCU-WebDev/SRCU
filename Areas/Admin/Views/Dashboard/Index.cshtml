@@ -1,8 +1,9 @@
 ﻿@{
     ViewBag.Title = "SRCU Admin Dashboard";
 }
+
 @Html.Partial("_AdminNavigation")
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
             @* Today statistics *@
@@ -54,14 +55,14 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td height="30" class="lightBlue_Background" colspan="2">
+                                    <td height="30" class="lightBlue_bg" colspan="2">
                                         Total Dollar Amount
                                     </td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr height="110" class="blue_Background white bigger">
-                                    <td width="30%">&#36;</td>                                   
+                                    <td width="30%">&#36;</td>
                                     <td>@(((decimal)ViewBag.TodayDollarAmt).ToString("C2")) </td>
                                 </tr>
                             </tbody>
@@ -74,7 +75,7 @@
                             <thead>
                                 <tr>
                                     <td height="30" class="lightBrownOrange_Background" colspan="2">
-                                       Total Apps
+                                        Total Apps
                                     </td>
                                 </tr>
                             </thead>

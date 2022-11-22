@@ -7,60 +7,65 @@
 }
 @Html.Partial("_AdminNavigation")
 
-    <h2 class="margin-left col-md-12">Schools Details</h2><br /><br /><br /><br />
 
-<div class="col-md-1 margin-left"><a href="@Url.Content("~/Admin/Admin/AddSchool")" type="button" class="btn btn-primary pull-right">Add New School</a></div><br /><br />
-<div id="grid" class="col-md-12 ">
+<div class="m-5">
 
-    @{
-        @grid.GetHtml(htmlAttributes: new { id = "DataTable" },
-        tableStyle: "webgrid-table",
-        headerStyle: "webgrid-header",
-        footerStyle: "webgrid-footer",
-        alternatingRowStyle: "webgrid-alternating-row",
-        rowStyle: "webgrid-row-style",
-        columns: grid.Columns(
-        // grid.Column("recid", "ID"),
-        grid.Column(header: "No.", format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
-        //grid.Column("school_ID", "ID"),
-        grid.Column("schoolSystem", "System"),
-        grid.Column("schoolName", "school Name", canSort: false),
-        grid.Column("schoolPhone", "Phone", canSort: false),
-        grid.Column("schoolAddress1", "Address1", canSort: false),
-        grid.Column("schoolAddress2", "Address2", canSort: false),
-        grid.Column("city", "City", canSort: false),
-        grid.Column("state", "State", canSort: false),
-        grid.Column("zip", "Zipcode", canSort: false),
-        grid.Column("contactName", "contact Name", canSort: false),
-        grid.Column("contactPhone", "contact Phone", canSort: false),
-        grid.Column("contactEmail", "contact Email", canSort: false),
-                 // grid.Column("contactName2", "contact Name2", canSort: false),
-                 //grid.Column("contactPhone2", "contact Phone2", canSort: false),
-                 //grid.Column("contactEmail2", "contact Email2", canSort: false),
-        grid.Column("locationInBuilding", "Location In Building", canSort: false),
-        grid.Column(header: "Action", format: @<text> 
-                                                    @Html.ActionLink("Edit", "UpdateSchool", new { schoolId = @item.school_ID})
-                                                    </text>)
+    <h2 class="page-header">Schools Details</h2>   <hr />
+
+    @*<div class="mb-5 mt-5 text "><a href="@Url.Content("~/Admin/Admin/AddSchool")" type="button" class="btn CTA_btn">Add New School</a></div>*@
+    <div id="grid">
+
+        @{
+            @grid.GetHtml(htmlAttributes: new { id = "DataTable" },
+            tableStyle: "table",
+            headerStyle: "webgrid-header",
+            footerStyle: "webgrid-footer",
+            alternatingRowStyle: "webgrid-alternating-row",
+            rowStyle: "webgrid-row-style",
+            columns: grid.Columns(
+            // grid.Column("recid", "ID"),
+            grid.Column(header: "No.", format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+            //grid.Column("school_ID", "ID"),
+            grid.Column("schoolSystem", "System"),
+            grid.Column("schoolName", "school Name", canSort: false),
+            grid.Column("schoolPhone", "Phone", canSort: false),
+            grid.Column("schoolAddress1", "Address1", canSort: false),
+            grid.Column("schoolAddress2", "Address2", canSort: false),
+            grid.Column("city", "City", canSort: false),
+            grid.Column("state", "State", canSort: false),
+            grid.Column("zip", "Zipcode", canSort: false),
+            grid.Column("contactName", "contact Name", canSort: false),
+            grid.Column("contactPhone", "contact Phone", canSort: false),
+            grid.Column("contactEmail", "contact Email", canSort: false),
+            // grid.Column("contactName2", "contact Name2", canSort: false),
+            //grid.Column("contactPhone2", "contact Phone2", canSort: false),
+            //grid.Column("contactEmail2", "contact Email2", canSort: false),
+            grid.Column("locationInBuilding", "Location In Building", canSort: false),
+            grid.Column(header: "Action", format: @<text>
+                    @Html.ActionLink("Edit", "UpdateSchool", new { schoolId = @item.school_ID })
+            </text>)
 ));
-    }
+        }
 
+    </div>
 </div>
+    <script>
+        $(document).ready(function () {
+            $("#grid tbody tr").each(function (i, row) {
+                var bagNumber = $(this).find("td:nth-child(2)").text();
+                var appNumber = $(this).find("td:nth-child(5)").text();
 
-<script>
-    $(document).ready(function () {
-        $("#grid tbody tr").each(function (i, row) {
-            var bagNumber = $(this).find("td:nth-child(2)").text();
-            var appNumber = $(this).find("td:nth-child(5)").text();
-
-            if (bagNumber.length == 0 && (appNumber.length == 0 || appNumber == 0)) {
-                $(this).addClass("grey_Background , grey");
-            }
-            else if (bagNumber.length == 0 && appNumber.length != 0) {
-                $(this).addClass("blue_Background , white");
-            }
-            else {
-                $(this).addClass("white_Background, darkgrey");
-            }
+                if (bagNumber.length == 0 && (appNumber.length == 0 || appNumber == 0)) {
+                    $(this).addClass("grey_Background , grey");
+                }
+                else if (bagNumber.length == 0 && appNumber.length != 0) {
+                    $(this).addClass("blue_Background , white");
+                }
+                else {
+                    $(this).addClass("white_Background, darkgrey");
+                }
+            });
         });
-    });
-</script> 
+    </script>
+
+    
